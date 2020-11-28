@@ -1,0 +1,2083 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>pyhamilton.oemerr API documentation</title>
+<meta name="description" content="`pyhamilton`-specific exception definitions." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyhamilton.oemerr</code></h1>
+</header>
+<section id="section-intro">
+<p><code><a title="pyhamilton" href="index.html">pyhamilton</a></code>-specific exception definitions.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;`pyhamilton`-specific exception definitions.
+&#34;&#34;&#34;
+class HamiltonError(Exception):
+    &#34;&#34;&#34;
+    Exceptions raised in package pyhamilton
+    &#34;&#34;&#34;
+    pass
+
+###########################################
+### BEGIN HAMILTON DECK RESOURCE ERRORS ###
+###########################################
+
+class HamiltonDeckResourceError(HamiltonError):
+    &#34;&#34;&#34;
+    Error with any deck object in interface with robot.
+    &#34;&#34;&#34;
+    pass
+
+class ResourceUnavailableError(HamiltonDeckResourceError):
+    &#34;&#34;&#34;
+    Layout manager found deck resource type not present or all of this type assigned
+    &#34;&#34;&#34;
+    pass
+
+#######################################
+### BEGIN HAMILTON INTERFACE ERRORS ###
+#######################################
+
+class HamiltonInterfaceError(HamiltonError):
+    &#34;&#34;&#34;
+    Error in any phase of communication with robot.
+    &#34;&#34;&#34;
+    pass
+
+class HamiltonTimeoutError(HamiltonInterfaceError):
+    &#34;&#34;&#34;
+    An asynchronous request to the Hamilton robot timed out.
+    &#34;&#34;&#34;
+    pass
+
+class InvalidErrCodeError(HamiltonInterfaceError):
+    &#34;&#34;&#34;
+    Error code returned from instrument not known.
+    &#34;&#34;&#34;
+    pass
+
+class HamiltonReturnParseError(HamiltonInterfaceError):
+    &#34;&#34;&#34;
+    Return string from instrument was malformed.
+    &#34;&#34;&#34;
+    pass
+
+########################################################
+### BEGIN HAMILTON CODED STEP ERRORS, CODE MAP BELOW ###
+########################################################
+
+class HamiltonStepError(HamiltonError):
+    &#34;&#34;&#34;
+    Errors in steps executed by VENUS software coded in the Hamilton error specification.
+    &#34;&#34;&#34;
+    pass
+
+class HamiltonSyntaxError(HamiltonStepError):
+    &#34;&#34;&#34;
+    There is a wrong set of parameters or parameter ranges.
+    &#34;&#34;&#34;
+    pass
+ 
+class HardwareError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Steps lost on one or more hardware components, or component not initialized or not functioning.
+    &#34;&#34;&#34;
+    pass
+ 
+class NotExecutedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    There was an error in previous part command.
+    &#34;&#34;&#34;
+    pass
+
+class ClotError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Blood clot detected.
+    &#34;&#34;&#34;
+    pass
+
+class BarcodeError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Barcode could not be read or is missing.
+    &#34;&#34;&#34;
+    pass
+
+class InsufficientLiquidError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Not enough liquid available.
+    &#34;&#34;&#34;
+    pass
+
+class TipPresentError(HamiltonStepError):
+    &#34;&#34;&#34;
+    A tip has already been picked up.
+    &#34;&#34;&#34;
+    pass
+
+class NoTipError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Tip is missing or not picked up.
+    &#34;&#34;&#34;
+    pass
+
+class NoCarrierError(HamiltonStepError):
+    &#34;&#34;&#34;
+    No carrier present for loading.
+    &#34;&#34;&#34;
+    pass
+
+class ExecutionError(HamiltonStepError):
+    &#34;&#34;&#34;
+    A step or a part of a step could not be processed.
+    &#34;&#34;&#34;
+    pass
+
+class PressureLLDError(HamiltonStepError):
+    &#34;&#34;&#34;
+    A dispense with pressure liquid level detection is not allowed.
+    &#34;&#34;&#34;
+    pass
+
+class CalibrateError(HamiltonStepError):
+    &#34;&#34;&#34;
+    No capacitive signal detected during carrier calibration procedure.
+    &#34;&#34;&#34;
+    pass
+
+class UnloadError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Not possible to unload the carrier due to occupied loading tray position.
+    &#34;&#34;&#34;
+    pass
+
+class PressureLLDError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Pressure liquid level detection in a consecutive aspiration is not allowed.
+    &#34;&#34;&#34;
+    pass
+
+class ParameterError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Dispense in jet mode with pressure liquid level detection is not allowed.
+    &#34;&#34;&#34;
+    pass
+
+class CoverOpenError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Cover not closed or can not be locked.
+    &#34;&#34;&#34;
+    pass
+
+class ImproperAspirationOrDispenseError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The pressure-based aspiration / dispensation control reported an error ( not enough liquid ).
+    &#34;&#34;&#34;
+    pass
+
+class WashLiquidError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Waste full or no more wash liquid available.
+    &#34;&#34;&#34;
+    pass
+
+class TemperatureError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Incubator temperature out of range.
+    &#34;&#34;&#34;
+    pass
+
+class TADMOvershotError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Overshot of limits during aspirate or dispense.
+
+    Note:
+
+    On aspirate this error is returned as main error 17.
+
+    On dispense this error is returned as main error 4.
+    &#34;&#34;&#34;
+    pass
+
+class LabwareError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Labware not available.
+    &#34;&#34;&#34;
+    pass
+
+class LabwareGrippedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Labware already gripped.
+    &#34;&#34;&#34;
+    pass
+
+class LabwareLostError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Labware lost during transport.
+    &#34;&#34;&#34;
+    pass
+
+class IllegalTargetPlatePositionError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Cannot place plate, plate was gripped in a wrong direction.
+    &#34;&#34;&#34;
+    pass
+
+class IllegalInterventionError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Cover was opened or a carrier was removed manually.
+    &#34;&#34;&#34;
+    pass
+
+class TADMUndershotError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Undershot of limits during aspirate or dispense.
+
+    Note:
+
+    On aspirate this error is returned as main error 4.
+
+    On dispense this error is returned as main error 17.
+    &#34;&#34;&#34;
+    pass
+
+class PositionError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The position is out of range.
+    &#34;&#34;&#34;
+    pass
+
+class UnexpectedcLLDError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The cLLD detected a liquid level above start height of liquid level search.
+    &#34;&#34;&#34;
+    pass
+
+class AreaAlreadyOccupiedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Instrument region already reserved.
+    &#34;&#34;&#34;
+    pass
+
+class ImpossibleToOccupyAreaError(HamiltonStepError):
+    &#34;&#34;&#34;
+    A region on the instrument cannot be reserved.
+    &#34;&#34;&#34;
+    pass
+
+class AntiDropControlError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Anti drop controlling out of tolerance.
+    &#34;&#34;&#34;
+    pass
+
+class DecapperError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Decapper lock error while screw / unscrew a cap by twister channels.
+    &#34;&#34;&#34;
+    pass
+
+class DecapperHandlingError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Decapper station error while lock / unlock a cap.
+    &#34;&#34;&#34;
+    pass
+
+class SlaveError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Slave error.
+    &#34;&#34;&#34;
+    pass
+
+class WrongCarrierError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Wrong carrier barcode detected.
+    &#34;&#34;&#34;
+    pass
+
+class NoCarrierBarcodeError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Carrier barcode could not be read or is missing.
+    &#34;&#34;&#34;
+    pass
+
+class LiquidLevelError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Liquid surface not detected.
+
+    This error is created from main / slave error 06/70, 06/73 and 06/87.
+    &#34;&#34;&#34;
+    pass
+
+class NotDetectedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Carrier not detected at deck end position.
+    &#34;&#34;&#34;
+    pass
+
+class NotAspiratedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Dispense volume exceeds the aspirated volume.
+
+    This error is created from main / slave error 02/54.
+    &#34;&#34;&#34;
+    pass
+
+class ImproperDispensationError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The dispensed volume is out of tolerance (may only occur for Nano Pipettor Dispense steps). 
+
+    This error is created from main / slave error 02/52 and 02/54.
+    &#34;&#34;&#34;
+    pass
+
+class NoLabwareError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The labware to be loaded was not detected by autoload module.
+
+    Note:
+
+    May only occur on a Reload Carrier step if the labware property &#39;MlStarCarPosAreRecognizable&#39; is set to 1.
+    &#34;&#34;&#34;
+    pass
+
+class UnexpectedLabwareError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The labware contains unexpected barcode ( may only occur on a Reload Carrier step ).
+    &#34;&#34;&#34;
+    pass
+
+class WrongLabwareError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The labware to be reloaded contains wrong barcode ( may only occur on a Reload Carrier step ).
+    &#34;&#34;&#34;
+    pass
+
+class BarcodeMaskError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The barcode read doesn&#39;t match the barcode mask defined.
+    &#34;&#34;&#34;
+    pass
+
+class BarcodeNotUniqueError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The barcode read is not unique. Previously loaded labware with same barcode was loaded without unique barcode check.
+    &#34;&#34;&#34;
+    pass
+
+class BarcodeAlreadyUsedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The barcode read is already loaded as unique barcode ( it&#39;s not possible to load the same barcode twice ).
+    &#34;&#34;&#34;
+    pass
+
+class KitLotExpiredError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Kit Lot expired.
+    &#34;&#34;&#34;
+    pass
+
+class DelimiterError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Barcode contains character which is used as delimiter in result string.
+    &#34;&#34;&#34;
+    pass
+
+
+HAMILTON_ERROR_MAP = { 
+    1: HamiltonSyntaxError,
+    2: HardwareError,
+    3: NotExecutedError,
+    4: ClotError,
+    5: BarcodeError,
+    6: InsufficientLiquidError,
+    7: TipPresentError,
+    8: NoTipError,
+    9: NoCarrierError,
+    10: ExecutionError,
+    11: PressureLLDError,
+    12: CalibrateError,
+    13: UnloadError,
+    14: PressureLLDError,
+    15: ParameterError,
+    16: CoverOpenError,
+    17: ImproperAspirationOrDispenseError,
+    18: WashLiquidError,
+    19: TemperatureError,
+    20: TADMOvershotError,
+    21: LabwareError,
+    22: LabwareGrippedError,
+    23: LabwareLostError,
+    24: IllegalTargetPlatePositionError,
+    25: IllegalInterventionError,
+    26: TADMUndershotError,
+    27: PositionError,
+    28: UnexpectedcLLDError,
+    29: AreaAlreadyOccupiedError,
+    30: ImpossibleToOccupyAreaError,
+    31: AntiDropControlError,
+    32: DecapperError,
+    33: DecapperHandlingError,
+    99: SlaveError,
+    100: WrongCarrierError,
+    101: NoCarrierBarcodeError,
+    102: LiquidLevelError,
+    103: NotDetectedError,
+    104: NotAspiratedError,
+    105: ImproperDispensationError,
+    106: NoLabwareError,
+    107: UnexpectedLabwareError,
+    108: WrongLabwareError,
+    109: BarcodeMaskError,
+    110: BarcodeNotUniqueError,
+    111: BarcodeAlreadyUsedError,
+    112: KitLotExpiredError,
+    113: DelimiterError
+}
+&#34;&#34;&#34;
+Maps integer error codes from Hamilton step return data to the appropriate `pyhamilton` errors
+&#34;&#34;&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="pyhamilton.oemerr.HAMILTON_ERROR_MAP"><code class="name">var <span class="ident">HAMILTON_ERROR_MAP</span></code></dt>
+<dd>
+<div class="desc"><p>Maps integer error codes from Hamilton step return data to the appropriate <code><a title="pyhamilton" href="index.html">pyhamilton</a></code> errors</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pyhamilton.oemerr.AntiDropControlError"><code class="flex name class">
+<span>class <span class="ident">AntiDropControlError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Anti drop controlling out of tolerance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AntiDropControlError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Anti drop controlling out of tolerance.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.AreaAlreadyOccupiedError"><code class="flex name class">
+<span>class <span class="ident">AreaAlreadyOccupiedError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Instrument region already reserved.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AreaAlreadyOccupiedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Instrument region already reserved.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.BarcodeAlreadyUsedError"><code class="flex name class">
+<span>class <span class="ident">BarcodeAlreadyUsedError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The barcode read is already loaded as unique barcode ( it's not possible to load the same barcode twice ).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BarcodeAlreadyUsedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The barcode read is already loaded as unique barcode ( it&#39;s not possible to load the same barcode twice ).
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.BarcodeError"><code class="flex name class">
+<span>class <span class="ident">BarcodeError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Barcode could not be read or is missing.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BarcodeError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Barcode could not be read or is missing.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.BarcodeMaskError"><code class="flex name class">
+<span>class <span class="ident">BarcodeMaskError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The barcode read doesn't match the barcode mask defined.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BarcodeMaskError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The barcode read doesn&#39;t match the barcode mask defined.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.BarcodeNotUniqueError"><code class="flex name class">
+<span>class <span class="ident">BarcodeNotUniqueError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The barcode read is not unique. Previously loaded labware with same barcode was loaded without unique barcode check.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BarcodeNotUniqueError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The barcode read is not unique. Previously loaded labware with same barcode was loaded without unique barcode check.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.CalibrateError"><code class="flex name class">
+<span>class <span class="ident">CalibrateError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>No capacitive signal detected during carrier calibration procedure.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CalibrateError(HamiltonStepError):
+    &#34;&#34;&#34;
+    No capacitive signal detected during carrier calibration procedure.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.ClotError"><code class="flex name class">
+<span>class <span class="ident">ClotError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Blood clot detected.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ClotError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Blood clot detected.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.CoverOpenError"><code class="flex name class">
+<span>class <span class="ident">CoverOpenError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cover not closed or can not be locked.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CoverOpenError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Cover not closed or can not be locked.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.DecapperError"><code class="flex name class">
+<span>class <span class="ident">DecapperError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Decapper lock error while screw / unscrew a cap by twister channels.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DecapperError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Decapper lock error while screw / unscrew a cap by twister channels.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.DecapperHandlingError"><code class="flex name class">
+<span>class <span class="ident">DecapperHandlingError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Decapper station error while lock / unlock a cap.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DecapperHandlingError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Decapper station error while lock / unlock a cap.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.DelimiterError"><code class="flex name class">
+<span>class <span class="ident">DelimiterError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Barcode contains character which is used as delimiter in result string.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DelimiterError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Barcode contains character which is used as delimiter in result string.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.ExecutionError"><code class="flex name class">
+<span>class <span class="ident">ExecutionError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A step or a part of a step could not be processed.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ExecutionError(HamiltonStepError):
+    &#34;&#34;&#34;
+    A step or a part of a step could not be processed.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.HamiltonDeckResourceError"><code class="flex name class">
+<span>class <span class="ident">HamiltonDeckResourceError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Error with any deck object in interface with robot.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HamiltonDeckResourceError(HamiltonError):
+    &#34;&#34;&#34;
+    Error with any deck object in interface with robot.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.ResourceUnavailableError" href="#pyhamilton.oemerr.ResourceUnavailableError">ResourceUnavailableError</a></li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.HamiltonError"><code class="flex name class">
+<span>class <span class="ident">HamiltonError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exceptions raised in package pyhamilton</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HamiltonError(Exception):
+    &#34;&#34;&#34;
+    Exceptions raised in package pyhamilton
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonDeckResourceError" href="#pyhamilton.oemerr.HamiltonDeckResourceError">HamiltonDeckResourceError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonInterfaceError" href="#pyhamilton.oemerr.HamiltonInterfaceError">HamiltonInterfaceError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.HamiltonInterfaceError"><code class="flex name class">
+<span>class <span class="ident">HamiltonInterfaceError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Error in any phase of communication with robot.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HamiltonInterfaceError(HamiltonError):
+    &#34;&#34;&#34;
+    Error in any phase of communication with robot.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonReturnParseError" href="#pyhamilton.oemerr.HamiltonReturnParseError">HamiltonReturnParseError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonTimeoutError" href="#pyhamilton.oemerr.HamiltonTimeoutError">HamiltonTimeoutError</a></li>
+<li><a title="pyhamilton.oemerr.InvalidErrCodeError" href="#pyhamilton.oemerr.InvalidErrCodeError">InvalidErrCodeError</a></li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.HamiltonReturnParseError"><code class="flex name class">
+<span>class <span class="ident">HamiltonReturnParseError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return string from instrument was malformed.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HamiltonReturnParseError(HamiltonInterfaceError):
+    &#34;&#34;&#34;
+    Return string from instrument was malformed.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonInterfaceError" href="#pyhamilton.oemerr.HamiltonInterfaceError">HamiltonInterfaceError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.HamiltonStepError"><code class="flex name class">
+<span>class <span class="ident">HamiltonStepError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Errors in steps executed by VENUS software coded in the Hamilton error specification.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HamiltonStepError(HamiltonError):
+    &#34;&#34;&#34;
+    Errors in steps executed by VENUS software coded in the Hamilton error specification.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.AntiDropControlError" href="#pyhamilton.oemerr.AntiDropControlError">AntiDropControlError</a></li>
+<li><a title="pyhamilton.oemerr.AreaAlreadyOccupiedError" href="#pyhamilton.oemerr.AreaAlreadyOccupiedError">AreaAlreadyOccupiedError</a></li>
+<li><a title="pyhamilton.oemerr.BarcodeAlreadyUsedError" href="#pyhamilton.oemerr.BarcodeAlreadyUsedError">BarcodeAlreadyUsedError</a></li>
+<li><a title="pyhamilton.oemerr.BarcodeError" href="#pyhamilton.oemerr.BarcodeError">BarcodeError</a></li>
+<li><a title="pyhamilton.oemerr.BarcodeMaskError" href="#pyhamilton.oemerr.BarcodeMaskError">BarcodeMaskError</a></li>
+<li><a title="pyhamilton.oemerr.BarcodeNotUniqueError" href="#pyhamilton.oemerr.BarcodeNotUniqueError">BarcodeNotUniqueError</a></li>
+<li><a title="pyhamilton.oemerr.CalibrateError" href="#pyhamilton.oemerr.CalibrateError">CalibrateError</a></li>
+<li><a title="pyhamilton.oemerr.ClotError" href="#pyhamilton.oemerr.ClotError">ClotError</a></li>
+<li><a title="pyhamilton.oemerr.CoverOpenError" href="#pyhamilton.oemerr.CoverOpenError">CoverOpenError</a></li>
+<li><a title="pyhamilton.oemerr.DecapperError" href="#pyhamilton.oemerr.DecapperError">DecapperError</a></li>
+<li><a title="pyhamilton.oemerr.DecapperHandlingError" href="#pyhamilton.oemerr.DecapperHandlingError">DecapperHandlingError</a></li>
+<li><a title="pyhamilton.oemerr.DelimiterError" href="#pyhamilton.oemerr.DelimiterError">DelimiterError</a></li>
+<li><a title="pyhamilton.oemerr.ExecutionError" href="#pyhamilton.oemerr.ExecutionError">ExecutionError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonSyntaxError" href="#pyhamilton.oemerr.HamiltonSyntaxError">HamiltonSyntaxError</a></li>
+<li><a title="pyhamilton.oemerr.HardwareError" href="#pyhamilton.oemerr.HardwareError">HardwareError</a></li>
+<li><a title="pyhamilton.oemerr.IllegalInterventionError" href="#pyhamilton.oemerr.IllegalInterventionError">IllegalInterventionError</a></li>
+<li><a title="pyhamilton.oemerr.IllegalTargetPlatePositionError" href="#pyhamilton.oemerr.IllegalTargetPlatePositionError">IllegalTargetPlatePositionError</a></li>
+<li><a title="pyhamilton.oemerr.ImpossibleToOccupyAreaError" href="#pyhamilton.oemerr.ImpossibleToOccupyAreaError">ImpossibleToOccupyAreaError</a></li>
+<li><a title="pyhamilton.oemerr.ImproperAspirationOrDispenseError" href="#pyhamilton.oemerr.ImproperAspirationOrDispenseError">ImproperAspirationOrDispenseError</a></li>
+<li><a title="pyhamilton.oemerr.ImproperDispensationError" href="#pyhamilton.oemerr.ImproperDispensationError">ImproperDispensationError</a></li>
+<li><a title="pyhamilton.oemerr.InsufficientLiquidError" href="#pyhamilton.oemerr.InsufficientLiquidError">InsufficientLiquidError</a></li>
+<li><a title="pyhamilton.oemerr.KitLotExpiredError" href="#pyhamilton.oemerr.KitLotExpiredError">KitLotExpiredError</a></li>
+<li><a title="pyhamilton.oemerr.LabwareError" href="#pyhamilton.oemerr.LabwareError">LabwareError</a></li>
+<li><a title="pyhamilton.oemerr.LabwareGrippedError" href="#pyhamilton.oemerr.LabwareGrippedError">LabwareGrippedError</a></li>
+<li><a title="pyhamilton.oemerr.LabwareLostError" href="#pyhamilton.oemerr.LabwareLostError">LabwareLostError</a></li>
+<li><a title="pyhamilton.oemerr.LiquidLevelError" href="#pyhamilton.oemerr.LiquidLevelError">LiquidLevelError</a></li>
+<li><a title="pyhamilton.oemerr.NoCarrierBarcodeError" href="#pyhamilton.oemerr.NoCarrierBarcodeError">NoCarrierBarcodeError</a></li>
+<li><a title="pyhamilton.oemerr.NoCarrierError" href="#pyhamilton.oemerr.NoCarrierError">NoCarrierError</a></li>
+<li><a title="pyhamilton.oemerr.NoLabwareError" href="#pyhamilton.oemerr.NoLabwareError">NoLabwareError</a></li>
+<li><a title="pyhamilton.oemerr.NoTipError" href="#pyhamilton.oemerr.NoTipError">NoTipError</a></li>
+<li><a title="pyhamilton.oemerr.NotAspiratedError" href="#pyhamilton.oemerr.NotAspiratedError">NotAspiratedError</a></li>
+<li><a title="pyhamilton.oemerr.NotDetectedError" href="#pyhamilton.oemerr.NotDetectedError">NotDetectedError</a></li>
+<li><a title="pyhamilton.oemerr.NotExecutedError" href="#pyhamilton.oemerr.NotExecutedError">NotExecutedError</a></li>
+<li><a title="pyhamilton.oemerr.ParameterError" href="#pyhamilton.oemerr.ParameterError">ParameterError</a></li>
+<li><a title="pyhamilton.oemerr.PositionError" href="#pyhamilton.oemerr.PositionError">PositionError</a></li>
+<li><a title="pyhamilton.oemerr.PressureLLDError" href="#pyhamilton.oemerr.PressureLLDError">PressureLLDError</a></li>
+<li><a title="pyhamilton.oemerr.SlaveError" href="#pyhamilton.oemerr.SlaveError">SlaveError</a></li>
+<li><a title="pyhamilton.oemerr.TADMOvershotError" href="#pyhamilton.oemerr.TADMOvershotError">TADMOvershotError</a></li>
+<li><a title="pyhamilton.oemerr.TADMUndershotError" href="#pyhamilton.oemerr.TADMUndershotError">TADMUndershotError</a></li>
+<li><a title="pyhamilton.oemerr.TemperatureError" href="#pyhamilton.oemerr.TemperatureError">TemperatureError</a></li>
+<li><a title="pyhamilton.oemerr.TipPresentError" href="#pyhamilton.oemerr.TipPresentError">TipPresentError</a></li>
+<li><a title="pyhamilton.oemerr.UnexpectedLabwareError" href="#pyhamilton.oemerr.UnexpectedLabwareError">UnexpectedLabwareError</a></li>
+<li><a title="pyhamilton.oemerr.UnexpectedcLLDError" href="#pyhamilton.oemerr.UnexpectedcLLDError">UnexpectedcLLDError</a></li>
+<li><a title="pyhamilton.oemerr.UnloadError" href="#pyhamilton.oemerr.UnloadError">UnloadError</a></li>
+<li><a title="pyhamilton.oemerr.WashLiquidError" href="#pyhamilton.oemerr.WashLiquidError">WashLiquidError</a></li>
+<li><a title="pyhamilton.oemerr.WrongCarrierError" href="#pyhamilton.oemerr.WrongCarrierError">WrongCarrierError</a></li>
+<li><a title="pyhamilton.oemerr.WrongLabwareError" href="#pyhamilton.oemerr.WrongLabwareError">WrongLabwareError</a></li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.HamiltonSyntaxError"><code class="flex name class">
+<span>class <span class="ident">HamiltonSyntaxError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>There is a wrong set of parameters or parameter ranges.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HamiltonSyntaxError(HamiltonStepError):
+    &#34;&#34;&#34;
+    There is a wrong set of parameters or parameter ranges.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.HamiltonTimeoutError"><code class="flex name class">
+<span>class <span class="ident">HamiltonTimeoutError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An asynchronous request to the Hamilton robot timed out.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HamiltonTimeoutError(HamiltonInterfaceError):
+    &#34;&#34;&#34;
+    An asynchronous request to the Hamilton robot timed out.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonInterfaceError" href="#pyhamilton.oemerr.HamiltonInterfaceError">HamiltonInterfaceError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.HardwareError"><code class="flex name class">
+<span>class <span class="ident">HardwareError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Steps lost on one or more hardware components, or component not initialized or not functioning.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HardwareError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Steps lost on one or more hardware components, or component not initialized or not functioning.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.IllegalInterventionError"><code class="flex name class">
+<span>class <span class="ident">IllegalInterventionError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cover was opened or a carrier was removed manually.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class IllegalInterventionError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Cover was opened or a carrier was removed manually.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.IllegalTargetPlatePositionError"><code class="flex name class">
+<span>class <span class="ident">IllegalTargetPlatePositionError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Cannot place plate, plate was gripped in a wrong direction.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class IllegalTargetPlatePositionError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Cannot place plate, plate was gripped in a wrong direction.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.ImpossibleToOccupyAreaError"><code class="flex name class">
+<span>class <span class="ident">ImpossibleToOccupyAreaError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A region on the instrument cannot be reserved.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ImpossibleToOccupyAreaError(HamiltonStepError):
+    &#34;&#34;&#34;
+    A region on the instrument cannot be reserved.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.ImproperAspirationOrDispenseError"><code class="flex name class">
+<span>class <span class="ident">ImproperAspirationOrDispenseError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The pressure-based aspiration / dispensation control reported an error ( not enough liquid ).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ImproperAspirationOrDispenseError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The pressure-based aspiration / dispensation control reported an error ( not enough liquid ).
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.ImproperDispensationError"><code class="flex name class">
+<span>class <span class="ident">ImproperDispensationError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The dispensed volume is out of tolerance (may only occur for Nano Pipettor Dispense steps). </p>
+<p>This error is created from main / slave error 02/52 and 02/54.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ImproperDispensationError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The dispensed volume is out of tolerance (may only occur for Nano Pipettor Dispense steps). 
+
+    This error is created from main / slave error 02/52 and 02/54.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.InsufficientLiquidError"><code class="flex name class">
+<span>class <span class="ident">InsufficientLiquidError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Not enough liquid available.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InsufficientLiquidError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Not enough liquid available.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.InvalidErrCodeError"><code class="flex name class">
+<span>class <span class="ident">InvalidErrCodeError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Error code returned from instrument not known.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InvalidErrCodeError(HamiltonInterfaceError):
+    &#34;&#34;&#34;
+    Error code returned from instrument not known.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonInterfaceError" href="#pyhamilton.oemerr.HamiltonInterfaceError">HamiltonInterfaceError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.KitLotExpiredError"><code class="flex name class">
+<span>class <span class="ident">KitLotExpiredError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Kit Lot expired.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class KitLotExpiredError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Kit Lot expired.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.LabwareError"><code class="flex name class">
+<span>class <span class="ident">LabwareError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Labware not available.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LabwareError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Labware not available.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.LabwareGrippedError"><code class="flex name class">
+<span>class <span class="ident">LabwareGrippedError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Labware already gripped.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LabwareGrippedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Labware already gripped.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.LabwareLostError"><code class="flex name class">
+<span>class <span class="ident">LabwareLostError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Labware lost during transport.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LabwareLostError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Labware lost during transport.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.LiquidLevelError"><code class="flex name class">
+<span>class <span class="ident">LiquidLevelError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Liquid surface not detected.</p>
+<p>This error is created from main / slave error 06/70, 06/73 and 06/87.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LiquidLevelError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Liquid surface not detected.
+
+    This error is created from main / slave error 06/70, 06/73 and 06/87.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.NoCarrierBarcodeError"><code class="flex name class">
+<span>class <span class="ident">NoCarrierBarcodeError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Carrier barcode could not be read or is missing.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NoCarrierBarcodeError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Carrier barcode could not be read or is missing.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.NoCarrierError"><code class="flex name class">
+<span>class <span class="ident">NoCarrierError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>No carrier present for loading.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NoCarrierError(HamiltonStepError):
+    &#34;&#34;&#34;
+    No carrier present for loading.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.NoLabwareError"><code class="flex name class">
+<span>class <span class="ident">NoLabwareError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The labware to be loaded was not detected by autoload module.</p>
+<p>Note:</p>
+<p>May only occur on a Reload Carrier step if the labware property 'MlStarCarPosAreRecognizable' is set to 1.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NoLabwareError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The labware to be loaded was not detected by autoload module.
+
+    Note:
+
+    May only occur on a Reload Carrier step if the labware property &#39;MlStarCarPosAreRecognizable&#39; is set to 1.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.NoTipError"><code class="flex name class">
+<span>class <span class="ident">NoTipError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tip is missing or not picked up.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NoTipError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Tip is missing or not picked up.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.NotAspiratedError"><code class="flex name class">
+<span>class <span class="ident">NotAspiratedError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dispense volume exceeds the aspirated volume.</p>
+<p>This error is created from main / slave error 02/54.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NotAspiratedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Dispense volume exceeds the aspirated volume.
+
+    This error is created from main / slave error 02/54.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.NotDetectedError"><code class="flex name class">
+<span>class <span class="ident">NotDetectedError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Carrier not detected at deck end position.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NotDetectedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Carrier not detected at deck end position.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.NotExecutedError"><code class="flex name class">
+<span>class <span class="ident">NotExecutedError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>There was an error in previous part command.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NotExecutedError(HamiltonStepError):
+    &#34;&#34;&#34;
+    There was an error in previous part command.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.ParameterError"><code class="flex name class">
+<span>class <span class="ident">ParameterError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dispense in jet mode with pressure liquid level detection is not allowed.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ParameterError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Dispense in jet mode with pressure liquid level detection is not allowed.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.PositionError"><code class="flex name class">
+<span>class <span class="ident">PositionError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The position is out of range.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PositionError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The position is out of range.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.PressureLLDError"><code class="flex name class">
+<span>class <span class="ident">PressureLLDError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pressure liquid level detection in a consecutive aspiration is not allowed.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PressureLLDError(HamiltonStepError):
+    &#34;&#34;&#34;
+    A dispense with pressure liquid level detection is not allowed.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.ResourceUnavailableError"><code class="flex name class">
+<span>class <span class="ident">ResourceUnavailableError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Layout manager found deck resource type not present or all of this type assigned</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResourceUnavailableError(HamiltonDeckResourceError):
+    &#34;&#34;&#34;
+    Layout manager found deck resource type not present or all of this type assigned
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonDeckResourceError" href="#pyhamilton.oemerr.HamiltonDeckResourceError">HamiltonDeckResourceError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.SlaveError"><code class="flex name class">
+<span>class <span class="ident">SlaveError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Slave error.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SlaveError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Slave error.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.TADMOvershotError"><code class="flex name class">
+<span>class <span class="ident">TADMOvershotError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Overshot of limits during aspirate or dispense.</p>
+<p>Note:</p>
+<p>On aspirate this error is returned as main error 17.</p>
+<p>On dispense this error is returned as main error 4.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TADMOvershotError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Overshot of limits during aspirate or dispense.
+
+    Note:
+
+    On aspirate this error is returned as main error 17.
+
+    On dispense this error is returned as main error 4.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.TADMUndershotError"><code class="flex name class">
+<span>class <span class="ident">TADMUndershotError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Undershot of limits during aspirate or dispense.</p>
+<p>Note:</p>
+<p>On aspirate this error is returned as main error 4.</p>
+<p>On dispense this error is returned as main error 17.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TADMUndershotError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Undershot of limits during aspirate or dispense.
+
+    Note:
+
+    On aspirate this error is returned as main error 4.
+
+    On dispense this error is returned as main error 17.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.TemperatureError"><code class="flex name class">
+<span>class <span class="ident">TemperatureError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Incubator temperature out of range.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TemperatureError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Incubator temperature out of range.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.TipPresentError"><code class="flex name class">
+<span>class <span class="ident">TipPresentError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A tip has already been picked up.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TipPresentError(HamiltonStepError):
+    &#34;&#34;&#34;
+    A tip has already been picked up.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.UnexpectedLabwareError"><code class="flex name class">
+<span>class <span class="ident">UnexpectedLabwareError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The labware contains unexpected barcode ( may only occur on a Reload Carrier step ).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UnexpectedLabwareError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The labware contains unexpected barcode ( may only occur on a Reload Carrier step ).
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.UnexpectedcLLDError"><code class="flex name class">
+<span>class <span class="ident">UnexpectedcLLDError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The cLLD detected a liquid level above start height of liquid level search.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UnexpectedcLLDError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The cLLD detected a liquid level above start height of liquid level search.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.UnloadError"><code class="flex name class">
+<span>class <span class="ident">UnloadError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Not possible to unload the carrier due to occupied loading tray position.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UnloadError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Not possible to unload the carrier due to occupied loading tray position.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.WashLiquidError"><code class="flex name class">
+<span>class <span class="ident">WashLiquidError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Waste full or no more wash liquid available.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class WashLiquidError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Waste full or no more wash liquid available.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.WrongCarrierError"><code class="flex name class">
+<span>class <span class="ident">WrongCarrierError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wrong carrier barcode detected.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class WrongCarrierError(HamiltonStepError):
+    &#34;&#34;&#34;
+    Wrong carrier barcode detected.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyhamilton.oemerr.WrongLabwareError"><code class="flex name class">
+<span>class <span class="ident">WrongLabwareError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The labware to be reloaded contains wrong barcode ( may only occur on a Reload Carrier step ).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class WrongLabwareError(HamiltonStepError):
+    &#34;&#34;&#34;
+    The labware to be reloaded contains wrong barcode ( may only occur on a Reload Carrier step ).
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></li>
+<li><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyhamilton" href="index.html">pyhamilton</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="pyhamilton.oemerr.HAMILTON_ERROR_MAP" href="#pyhamilton.oemerr.HAMILTON_ERROR_MAP">HAMILTON_ERROR_MAP</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyhamilton.oemerr.AntiDropControlError" href="#pyhamilton.oemerr.AntiDropControlError">AntiDropControlError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.AreaAlreadyOccupiedError" href="#pyhamilton.oemerr.AreaAlreadyOccupiedError">AreaAlreadyOccupiedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.BarcodeAlreadyUsedError" href="#pyhamilton.oemerr.BarcodeAlreadyUsedError">BarcodeAlreadyUsedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.BarcodeError" href="#pyhamilton.oemerr.BarcodeError">BarcodeError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.BarcodeMaskError" href="#pyhamilton.oemerr.BarcodeMaskError">BarcodeMaskError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.BarcodeNotUniqueError" href="#pyhamilton.oemerr.BarcodeNotUniqueError">BarcodeNotUniqueError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.CalibrateError" href="#pyhamilton.oemerr.CalibrateError">CalibrateError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.ClotError" href="#pyhamilton.oemerr.ClotError">ClotError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.CoverOpenError" href="#pyhamilton.oemerr.CoverOpenError">CoverOpenError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.DecapperError" href="#pyhamilton.oemerr.DecapperError">DecapperError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.DecapperHandlingError" href="#pyhamilton.oemerr.DecapperHandlingError">DecapperHandlingError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.DelimiterError" href="#pyhamilton.oemerr.DelimiterError">DelimiterError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.ExecutionError" href="#pyhamilton.oemerr.ExecutionError">ExecutionError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.HamiltonDeckResourceError" href="#pyhamilton.oemerr.HamiltonDeckResourceError">HamiltonDeckResourceError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.HamiltonError" href="#pyhamilton.oemerr.HamiltonError">HamiltonError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.HamiltonInterfaceError" href="#pyhamilton.oemerr.HamiltonInterfaceError">HamiltonInterfaceError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.HamiltonReturnParseError" href="#pyhamilton.oemerr.HamiltonReturnParseError">HamiltonReturnParseError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.HamiltonStepError" href="#pyhamilton.oemerr.HamiltonStepError">HamiltonStepError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.HamiltonSyntaxError" href="#pyhamilton.oemerr.HamiltonSyntaxError">HamiltonSyntaxError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.HamiltonTimeoutError" href="#pyhamilton.oemerr.HamiltonTimeoutError">HamiltonTimeoutError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.HardwareError" href="#pyhamilton.oemerr.HardwareError">HardwareError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.IllegalInterventionError" href="#pyhamilton.oemerr.IllegalInterventionError">IllegalInterventionError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.IllegalTargetPlatePositionError" href="#pyhamilton.oemerr.IllegalTargetPlatePositionError">IllegalTargetPlatePositionError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.ImpossibleToOccupyAreaError" href="#pyhamilton.oemerr.ImpossibleToOccupyAreaError">ImpossibleToOccupyAreaError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.ImproperAspirationOrDispenseError" href="#pyhamilton.oemerr.ImproperAspirationOrDispenseError">ImproperAspirationOrDispenseError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.ImproperDispensationError" href="#pyhamilton.oemerr.ImproperDispensationError">ImproperDispensationError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.InsufficientLiquidError" href="#pyhamilton.oemerr.InsufficientLiquidError">InsufficientLiquidError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.InvalidErrCodeError" href="#pyhamilton.oemerr.InvalidErrCodeError">InvalidErrCodeError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.KitLotExpiredError" href="#pyhamilton.oemerr.KitLotExpiredError">KitLotExpiredError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.LabwareError" href="#pyhamilton.oemerr.LabwareError">LabwareError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.LabwareGrippedError" href="#pyhamilton.oemerr.LabwareGrippedError">LabwareGrippedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.LabwareLostError" href="#pyhamilton.oemerr.LabwareLostError">LabwareLostError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.LiquidLevelError" href="#pyhamilton.oemerr.LiquidLevelError">LiquidLevelError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.NoCarrierBarcodeError" href="#pyhamilton.oemerr.NoCarrierBarcodeError">NoCarrierBarcodeError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.NoCarrierError" href="#pyhamilton.oemerr.NoCarrierError">NoCarrierError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.NoLabwareError" href="#pyhamilton.oemerr.NoLabwareError">NoLabwareError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.NoTipError" href="#pyhamilton.oemerr.NoTipError">NoTipError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.NotAspiratedError" href="#pyhamilton.oemerr.NotAspiratedError">NotAspiratedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.NotDetectedError" href="#pyhamilton.oemerr.NotDetectedError">NotDetectedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.NotExecutedError" href="#pyhamilton.oemerr.NotExecutedError">NotExecutedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.ParameterError" href="#pyhamilton.oemerr.ParameterError">ParameterError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.PositionError" href="#pyhamilton.oemerr.PositionError">PositionError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.PressureLLDError" href="#pyhamilton.oemerr.PressureLLDError">PressureLLDError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.ResourceUnavailableError" href="#pyhamilton.oemerr.ResourceUnavailableError">ResourceUnavailableError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.SlaveError" href="#pyhamilton.oemerr.SlaveError">SlaveError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.TADMOvershotError" href="#pyhamilton.oemerr.TADMOvershotError">TADMOvershotError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.TADMUndershotError" href="#pyhamilton.oemerr.TADMUndershotError">TADMUndershotError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.TemperatureError" href="#pyhamilton.oemerr.TemperatureError">TemperatureError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.TipPresentError" href="#pyhamilton.oemerr.TipPresentError">TipPresentError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.UnexpectedLabwareError" href="#pyhamilton.oemerr.UnexpectedLabwareError">UnexpectedLabwareError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.UnexpectedcLLDError" href="#pyhamilton.oemerr.UnexpectedcLLDError">UnexpectedcLLDError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.UnloadError" href="#pyhamilton.oemerr.UnloadError">UnloadError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.WashLiquidError" href="#pyhamilton.oemerr.WashLiquidError">WashLiquidError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.WrongCarrierError" href="#pyhamilton.oemerr.WrongCarrierError">WrongCarrierError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.oemerr.WrongLabwareError" href="#pyhamilton.oemerr.WrongLabwareError">WrongLabwareError</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

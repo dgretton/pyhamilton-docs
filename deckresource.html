@@ -1,0 +1,1588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>pyhamilton.deckresource API documentation</title>
+<meta name="description" content="Couplings to Hamilton deck layouts …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyhamilton.deckresource</code></h1>
+</header>
+<section id="section-intro">
+<p>Couplings to Hamilton deck layouts.</p>
+<p>Module <code><a title="pyhamilton.deckresource" href="#pyhamilton.deckresource">pyhamilton.deckresource</a></code> provides convenience classes and methods for interacting safely with Hamilton's Layout (<code>.lay</code>) files. It also implements transformations between well indexes and coordinates for a variety of labware, such as plates and tips.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Couplings to Hamilton deck layouts.
+
+Module `pyhamilton.deckresource` provides convenience classes and methods for interacting safely with Hamilton&#39;s Layout (`.lay`) files. It also implements transformations between well indexes and coordinates for a variety of labware, such as plates and tips.
+&#34;&#34;&#34;
+import string, shutil, os, string, re
+from datetime import datetime
+from pyhamilton import OEM_LAY_PATH, LAY_BACKUP_DIR
+from .oemerr import ResourceUnavailableError
+
+
+class ResourceType:
+    &#34;&#34;&#34;
+    Specifies a type of labware to extract using LayoutManager, and how.
+
+    This class associates a resource class, such as `Plate96`, with either a literal labware identifier (`str`) that appears in the Hamilton Layout (`.lay`) file, or a pair of functions: one that identifies when a text line in a layout file could be assigned this resource, called `test`, and one that parses such a name out of the line, called `extract_name`.
+
+    Typical usage:
+
+    ```
+    plate_type = ResourceType(Plate96, &#39;Cos_96_Rd_0001&#39;)
+    lmgr = LayoutManager(&#39;layout.lay&#39;)
+    plate = lmgr.assign_unused_resource(plate_type)
+    ```
+
+    Or:
+
+    ```
+    plate_type = ResourceType(Plate96,
+            LayoutManager.line_has_prefixed_name(&#39;Cos_96_Rd_&#39;),
+            LayoutManager.name_from_line)
+    lmgr = LayoutManager(&#39;layout.lay&#39;)
+    plate1 = lmgr.assign_unused_resource(plate_type)
+    plate2 = lmgr.assign_unused_resource(plate_type)
+    ```
+
+    Args:
+      resource_class (class): a class that inherits from `DeckResource`. Instances of this class will be returned from `LayoutManager` when assigning resources, factory-style.
+      *name_specifiers (list): This argument is unpacked with the &#34;splat&#34; operator (`*`) to enable polymorphism. One or the other of:
+      - (two-argument form) an exact name (`str`) of a labware item that appears in the target layout file, or
+      - (three-argument form) `test` and `extract_name` (see usage above):
+          * `test`: a function [(`str`) -&gt; `bool`] that identifies Layout file lines (`str`) that could be used to assign resources of this type
+          * `extract_name`: a function [(`str`) -&gt; `str`] that gets the desired name out of a line identified with `test`.
+
+    &#34;&#34;&#34;
+
+    def __init__(self, resource_class, *name_specifiers):
+        self.resource_class = resource_class
+        self.not_found_msg = None
+        try:
+            specific_name, = name_specifiers
+            self.test = lambda line: specific_name in re.split(r&#39;\W&#39;, line)
+            self.extract_name = lambda line: specific_name
+            self.not_found_msg = &#39;No exact match for name &#34;&#39; + specific_name + &#39;&#34; to assign a resource of type &#39; + resource_class.__name__
+        except ValueError:
+            self.test, self.extract_name = name_specifiers
+
+
+class LayoutManager:
+    &#34;&#34;&#34;Optionally activates a Hamilton layout and helps access its contents.
+
+    A `LayoutManager` manages the consistent assignment of `DeckResource` objects to items in a Hamilton Layout file (`.lay`). A `LayoutManager` must be used to set the active pyhamilton layout file, but use of this class is strictly optional when sending `pyhamilton` commands using `send_command`; names may be passed as string literals in commands instead if they are known in advance. The advantage to specifying all labware using `ResourceManager` is that resource names are verified to be present in the active layout file at runtime, and guaranteed never used more than once, both of which are necessary to avoid silent Hamilton errors.
+    
+    Example usage:
+    
+    ```
+    lmgr = LayoutManager(&#39;layout.lay&#39;)
+    plate = lmgr.assign_unused_resource(ResourceType(Plate24, &#39;plate_0&#39;))
+    culture_reservoir = lmgr.assign_unused_resource(ResourceType(Plate96, &#39;culture&#39;))
+    inducer_tips = lmgr.assign_unused_resource(ResourceType(Tip96, &#39;inducer_tips&#39;))
+    ```
+    &#34;&#34;&#34;
+
+    _managers = {}
+    @staticmethod
+    def get_manager(checksum):
+        &#34;&#34;&#34;Return a `LayoutManager` previously instantiated for a layout file that has the specified checksum.
+        
+        Typically used when accessing the same layout file from multiple &#34;threads&#34; in the same process (using the `threading` module) to prevent name double-counting.
+        
+        Args:
+          checksum (str): a checksum found at the end of a Hamilton Layout (`.lay`) file.
+        &#34;&#34;&#34;
+        return LayoutManager._managers[checksum]
+
+    @staticmethod
+    def initial_printable(line, start=0):
+        if not line:
+            return &#39;&#39;
+        end = start
+        while end &lt; len(line) and line[end] in string.printable:
+            end += 1
+        return line[start:end]
+
+    @staticmethod
+    def layline_objid(line):
+        keys = &#39;ObjId&#39;, &#39;LabwareName&#39;
+        if &#39;Labware&#39; in LayoutManager.layline_first_field(line):
+            keys = &#39;Id&#39;, *keys
+        for key in keys:
+            try:
+                start = line.index(key) + len(key) + 1
+                return LayoutManager.initial_printable(line, start)
+            except ValueError:
+                pass
+        else:
+            return None
+
+    @staticmethod
+    def layline_first_field(line):
+        return LayoutManager.initial_printable(line)
+
+    @staticmethod
+    def field_starts_with(field, prefix):
+        try:
+            return field.index(prefix) == 0
+        except ValueError:
+            return False
+
+    @staticmethod
+    def name_from_line(line):
+        field = LayoutManager.layline_objid(line)
+        if field:
+            return field
+        return LayoutManager.layline_first_field(line)
+
+    @staticmethod
+    def line_has_prefixed_name(prefix):
+        def has_prefix(line):
+            return LayoutManager.field_starts_with(LayoutManager.name_from_line(line), prefix)
+        return has_prefix
+
+    @staticmethod
+    def _read_layfile_lines(layfile_path):
+        buff = &#39;&#39;
+        lines = []
+        with open(layfile_path, &#39;rb&#39;) as f:
+            for c in f.read():
+                try:
+                    c = bytes([c]).decode(&#39;utf-8&#39;)
+                except UnicodeDecodeError:
+                    continue
+                buff += c
+                if c in &#39;\n\r\t&#39;:
+                    lines.append(buff.strip())
+                    buff = &#39;&#39;
+        if buff:
+            lines.append(buff)
+        return lines
+
+    @staticmethod
+    def _layfile_checksum(layfile_path):
+        lay_lines = LayoutManager._read_layfile_lines(layfile_path)
+        return lay_lines[-1].split(&#39;checksum=&#39;)[1].split(&#39;$$&#39;)[0]
+
+    @staticmethod
+    def layfiles_equal(lay_path_1, lay_path_2):
+        return LayoutManager._layfile_checksum(lay_path_1) == LayoutManager._layfile_checksum(lay_path_2)
+
+    def __init__(self, layfile_path, install=True):
+        self.lines = self._read_layfile_lines(layfile_path)
+        self.resources = {}
+        self.checksum = self._layfile_checksum(layfile_path)
+        self._managers[self.checksum] = self
+        if install and not LayoutManager.layfiles_equal(layfile_path, OEM_LAY_PATH):
+                print(&#39;BACKING UP AND INSTALLING NEW LAYFILE&#39;)
+                shutil.copy2(layfile_path, os.path.join(LAY_BACKUP_DIR, datetime.today().strftime(&#39;%Y%m%d_%H%M%S_&#39;) + os.path.basename(layfile_path)))
+                shutil.copy2(layfile_path, OEM_LAY_PATH)
+        
+    def assign_unused_resource(self, restype, order_key=None, reverse=False):
+        &#34;&#34;&#34;Create a new deck resource after finding and assigning an unused name that matches the resource type.
+        
+        This method searches through the layout file for one new layout name that matches the given resource type. It reserves this layout name permanently so that no later calls to `assign_unused_resource` can create a deck resource with the same layout name. Returns a `DeckResource`.
+        
+        Args:
+          restype (ResourceType): The resource type, which consists of a resource class (descendent of `DeckResource`) and some string pattern matching functions to identify the desired layout names.
+          order_key (Callable[[DeckResource], Comparable]): Optional; when multiple layout names match, specifies a function of one argument that is used to extract a comparison key from each candidate `DeckResource` object. The arg-min or arg-max of `order_key` will be returned, depending on `reverse`. By default, lexicographic order by layout name is used, which is suitable for most use cases, e.g. plates with layout names &#34;pcr-plate-a&#34;, &#34;pcr-plate-b&#34;, &#34;pcr-plate-c&#34;, ... will be returned in the expected order.
+          reverse (bool): Optional; use reverse-lexicographic order for layout names, useful for e.g. plate stacking applications, or reverse the order imposed by `order_key` if it is given.
+          
+        Returns:
+          A new instance of the resource class (descendent of `DeckResource`) from the given `ResourceType` `restype`.
+          
+        Raises:
+          ResourceUnavailableError: no names in the layout file that have not already been assigned match the resource type
+        
+        &#34;&#34;&#34;
+        if order_key is None:
+            order_key = lambda r: r.layout_name()
+        if not isinstance(restype, ResourceType):
+            raise TypeError(&#39;Must provide a ResourceType to be assigned&#39;)
+        matching_ress = []
+        for line in self.lines:
+            if restype.test(line):
+                match_name = restype.extract_name(line)
+                if match_name in self.resources:
+                    continue
+                matching_ress.append(restype.resource_class(match_name))
+        if not matching_ress:
+            msg = restype.not_found_msg or &#39;No unassigned resource of type &#39; + restype.resource_class.__name__ + &#39; available&#39;
+            raise ResourceUnavailableError(msg)
+        choose = max if reverse else min
+        new_res = choose(matching_ress, key=order_key)
+        self.resources[new_res.layout_name()] = new_res
+        return new_res
+
+
+class ResourceIterItem:
+
+    def __init__(self, resource, index):
+        self.parent_resource = resource
+        self.index = index
+        self.history = []
+
+
+class Tip(ResourceIterItem):
+    pass
+
+
+class Vessel(ResourceIterItem):
+
+    ADD = 0
+    REMOVE = 1
+
+    def record_removal(self, ml, dest=None):
+        if dest is not None and not isinstance(dest, Vessel):
+            raise ValueError(&#39;Sources and destinations in Vessel contents records must be Vessels&#39;)
+        self.history.append((Vessel.REMOVE, ml, dest))
+
+    def record_addition(self, ml, source):
+        if not isinstance(source, Vessel):
+            raise ValueError(&#39;Sources and destinations in Vessel contents records must be Vessels&#39;)
+        self.history.append((Vessel.ADD, ml, source))
+
+    def current_volume(self):
+        return sum((ml if direction == Vessel.ADD else -ml) for direction, ml, _ in self.history)
+
+
+class DeckResource:
+
+    class align:
+        VERTICAL = &#39;v&#39;
+        STD_96 = &#39;std_96&#39;
+
+    class types:
+        TIP, VESSEL = range(2)
+        
+    def __init__(self, layout_name):
+        raise NotImplementedError()
+
+    def _alignment_delta(self, int_start, int_end):
+        raise NotImplementedError() # (delta x, delta y, alignment properties list)
+
+    def _assert_idx_in_range(self, idx_or_vessel):
+        if isinstance(idx_or_vessel, Vessel):
+            idx = idx_or_vessel.index
+        else:
+            idx = idx_or_vessel
+        if not 0 &lt;= idx &lt; self._num_items:
+            raise ValueError(&#39;Index &#39; + str(idx) + &#39; not in range for resource&#39;)
+    
+    def layout_name(self):
+        &#34;&#34;&#34;The layout name of this specific deck resource.
+        
+        Returns:
+          The name (`str`) associated with this specific deck resource in the Hamilton Layout (`.lay`) file it came from.
+        &#34;&#34;&#34;
+        return self._layout_name # default; override if needed. (str) 
+
+    def position_id(self, idx):
+        &#34;&#34;&#34;The identifier used for one of a sequence of positions inside this labware.
+        
+        For labware with multiple positions, each position has a different identity, usually represented as a short string that will match the identifier scheme for this resource in the Hamilton Layout file it came from. The identifiers will usually be familiar from a laboratory setting.
+        
+        Examples
+        
+        - 96-well plates have 96 positions, each identified with a letter and a number like `&#39;D4&#39;`. For a `Plate96` instance named `plate`, `plate.position_id(0)` is `&#39;A1&#39;`, `plate.position_id(1)` is `&#39;B1&#39;`, and `plate.position_id(95)` is `&#39;H12&#39;`.
+        - Hamilton racks of 96 tips have 96 positions, identified with integer strings like `&#39;87&#39;` that start with `&#39;1&#39;` at the top left tip and increase down columns (8 positions each) first. For a `Tip96` instance named `tips`, `tips.position_id(0)` is `&#39;1&#39;`, `tips.position_id(1)` is `&#39;2&#39;`, and `tips.position_id(95)` is `&#39;96&#39;`.
+
+        Args:
+          idx (int): the index into the sequence of positions. Note: `idx` is zero-indexed across all labware according to python convention, while most real-world labware positions are 1-indexed.
+
+        Returns:
+          The identifier (`str`) associated with the position `idx` specific deck resource in the Hamilton Layout (`.lay`) file it came from.
+          
+        Raises:
+          NotImplementedError: The deck resource does not have positions.
+        &#34;&#34;&#34;
+        raise NotImplementedError()
+
+    def alignment_delta(self, start, end):
+        args = {&#39;start&#39;:start, &#39;end&#39;:end}
+        for pos in args:
+            if isinstance(args[pos], Vessel):
+                if args[pos].parent_resource is not self:
+                    raise ValueError(&#39;Positions provided as vessels, &#39;
+                            &#39;but do not belong to this resource&#39;)
+                args[pos] = start.index
+            else:
+                try:
+                    args[pos] += 0
+                except TypeError:
+                    raise ValueError(&#39;Positions provided for delta must be integers or vessels&#39;)
+            self._assert_idx_in_range(args[pos])
+        return self._alignment_delta(args[&#39;start&#39;], args[&#39;end&#39;])
+    
+    def __iter__(self):
+        for i in self._items:
+            yield i
+
+
+class Standard96(DeckResource):
+    &#34;&#34;&#34;Labware types with 96 positions that use a letter-number id scheme like `&#39;A1&#39;`.
+    &#34;&#34;&#34;
+
+    def well_coords(self, idx):
+        self._assert_idx_in_range(idx)
+        return int(idx)//8, int(idx)%8
+
+    def _alignment_delta(self, start, end):
+        [self._assert_idx_in_range(p) for p in (start, end)]
+        xs, ys = self.well_coords(start)
+        xe, ye = self.well_coords(end)
+        return (xe - xs, ye - ys, [DeckResource.align.STD_96]
+                                  + ([DeckResource.align.VERTICAL] if xs == xe and ys != ye else []))
+
+    def position_id(self, idx):
+        x, y = self.well_coords(idx)
+        return &#39;ABCDEFGH&#39;[y] + str(x + 1)
+
+
+class Tip96(Standard96):
+
+    def __init__(self, layout_name):
+        self._layout_name = layout_name
+        self._num_items = 96
+        self.resource_type = DeckResource.types.TIP
+        self._items = [Tip(self, i) for i in range(self._num_items)]
+    
+    def position_id(self, idx): # tips use 1-indexed int ids descending columns first
+        self._assert_idx_in_range(idx)
+        return str(idx + 1) # switch to standard advance through row first
+
+
+class Plate96(Standard96):
+
+    def __init__(self, layout_name):
+        self._layout_name = layout_name
+        self._num_items = 96
+        self.resource_type = DeckResource.types.VESSEL
+        self._items = [Vessel(self, i) for i in range(self._num_items)]
+
+
+class Plate24(DeckResource):
+
+    def __init__(self, layout_name):
+        self._layout_name = layout_name
+        self._num_items = 24
+        self.resource_type = DeckResource.types.VESSEL
+        self._items = [Vessel(self, i) for i in range(self._num_items)]
+
+    def well_coords(self, idx):
+        self._assert_idx_in_range(idx)
+        return int(idx)//4, int(idx)%4
+
+    def _alignment_delta(self, start, end):
+        [self._assert_idx_in_range(p) for p in (start, end)]
+        xs, ys = self.well_coords(start)
+        xe, ye = self.well_coords(end)
+        return (xe - xs, ye - ys, [DeckResource.align.VERTICAL] if xs == xe and ys != ye else [])
+
+    def position_id(self, idx):
+        x, y = self.well_coords(idx)
+        return &#39;ABCD&#39;[y] + str(x + 1)
+
+
+class Plate12(DeckResource):
+
+    def __init__(self, layout_name):
+        self._layout_name = layout_name
+        self._num_items = 12
+        self.resource_type = DeckResource.types.VESSEL
+        self._items = [Vessel(self, i) for i in range(self._num_items)]
+
+    def well_coords(self, idx):
+        self._assert_idx_in_range(idx)
+        return int(idx)//3, int(idx)%3
+
+    def _alignment_delta(self, start, end):
+        [self._assert_idx_in_range(p) for p in (start, end)]
+        xs, ys = self.well_coords(start)
+        xe, ye = self.well_coords(end)
+        return (xe - xs, ye - ys, [DeckResource.align.VERTICAL] if xs == xe and ys != ye else [])
+
+    def position_id(self, idx):
+        x, y = self.well_coords(idx)
+        return &#39;ABC&#39;[y] + str(x + 1)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pyhamilton.deckresource.DeckResource"><code class="flex name class">
+<span>class <span class="ident">DeckResource</span></span>
+<span>(</span><span>layout_name)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DeckResource:
+
+    class align:
+        VERTICAL = &#39;v&#39;
+        STD_96 = &#39;std_96&#39;
+
+    class types:
+        TIP, VESSEL = range(2)
+        
+    def __init__(self, layout_name):
+        raise NotImplementedError()
+
+    def _alignment_delta(self, int_start, int_end):
+        raise NotImplementedError() # (delta x, delta y, alignment properties list)
+
+    def _assert_idx_in_range(self, idx_or_vessel):
+        if isinstance(idx_or_vessel, Vessel):
+            idx = idx_or_vessel.index
+        else:
+            idx = idx_or_vessel
+        if not 0 &lt;= idx &lt; self._num_items:
+            raise ValueError(&#39;Index &#39; + str(idx) + &#39; not in range for resource&#39;)
+    
+    def layout_name(self):
+        &#34;&#34;&#34;The layout name of this specific deck resource.
+        
+        Returns:
+          The name (`str`) associated with this specific deck resource in the Hamilton Layout (`.lay`) file it came from.
+        &#34;&#34;&#34;
+        return self._layout_name # default; override if needed. (str) 
+
+    def position_id(self, idx):
+        &#34;&#34;&#34;The identifier used for one of a sequence of positions inside this labware.
+        
+        For labware with multiple positions, each position has a different identity, usually represented as a short string that will match the identifier scheme for this resource in the Hamilton Layout file it came from. The identifiers will usually be familiar from a laboratory setting.
+        
+        Examples
+        
+        - 96-well plates have 96 positions, each identified with a letter and a number like `&#39;D4&#39;`. For a `Plate96` instance named `plate`, `plate.position_id(0)` is `&#39;A1&#39;`, `plate.position_id(1)` is `&#39;B1&#39;`, and `plate.position_id(95)` is `&#39;H12&#39;`.
+        - Hamilton racks of 96 tips have 96 positions, identified with integer strings like `&#39;87&#39;` that start with `&#39;1&#39;` at the top left tip and increase down columns (8 positions each) first. For a `Tip96` instance named `tips`, `tips.position_id(0)` is `&#39;1&#39;`, `tips.position_id(1)` is `&#39;2&#39;`, and `tips.position_id(95)` is `&#39;96&#39;`.
+
+        Args:
+          idx (int): the index into the sequence of positions. Note: `idx` is zero-indexed across all labware according to python convention, while most real-world labware positions are 1-indexed.
+
+        Returns:
+          The identifier (`str`) associated with the position `idx` specific deck resource in the Hamilton Layout (`.lay`) file it came from.
+          
+        Raises:
+          NotImplementedError: The deck resource does not have positions.
+        &#34;&#34;&#34;
+        raise NotImplementedError()
+
+    def alignment_delta(self, start, end):
+        args = {&#39;start&#39;:start, &#39;end&#39;:end}
+        for pos in args:
+            if isinstance(args[pos], Vessel):
+                if args[pos].parent_resource is not self:
+                    raise ValueError(&#39;Positions provided as vessels, &#39;
+                            &#39;but do not belong to this resource&#39;)
+                args[pos] = start.index
+            else:
+                try:
+                    args[pos] += 0
+                except TypeError:
+                    raise ValueError(&#39;Positions provided for delta must be integers or vessels&#39;)
+            self._assert_idx_in_range(args[pos])
+        return self._alignment_delta(args[&#39;start&#39;], args[&#39;end&#39;])
+    
+    def __iter__(self):
+        for i in self._items:
+            yield i</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.deckresource.Plate12" href="#pyhamilton.deckresource.Plate12">Plate12</a></li>
+<li><a title="pyhamilton.deckresource.Plate24" href="#pyhamilton.deckresource.Plate24">Plate24</a></li>
+<li><a title="pyhamilton.deckresource.Standard96" href="#pyhamilton.deckresource.Standard96">Standard96</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyhamilton.deckresource.DeckResource.align"><code class="name">var <span class="ident">align</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyhamilton.deckresource.DeckResource.types"><code class="name">var <span class="ident">types</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyhamilton.deckresource.DeckResource.alignment_delta"><code class="name flex">
+<span>def <span class="ident">alignment_delta</span></span>(<span>self, start, end)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def alignment_delta(self, start, end):
+    args = {&#39;start&#39;:start, &#39;end&#39;:end}
+    for pos in args:
+        if isinstance(args[pos], Vessel):
+            if args[pos].parent_resource is not self:
+                raise ValueError(&#39;Positions provided as vessels, &#39;
+                        &#39;but do not belong to this resource&#39;)
+            args[pos] = start.index
+        else:
+            try:
+                args[pos] += 0
+            except TypeError:
+                raise ValueError(&#39;Positions provided for delta must be integers or vessels&#39;)
+        self._assert_idx_in_range(args[pos])
+    return self._alignment_delta(args[&#39;start&#39;], args[&#39;end&#39;])</code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.DeckResource.layout_name"><code class="name flex">
+<span>def <span class="ident">layout_name</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The layout name of this specific deck resource.</p>
+<h2 id="returns">Returns</h2>
+<p>The name (<code>str</code>) associated with this specific deck resource in the Hamilton Layout (<code>.lay</code>) file it came from.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def layout_name(self):
+    &#34;&#34;&#34;The layout name of this specific deck resource.
+    
+    Returns:
+      The name (`str`) associated with this specific deck resource in the Hamilton Layout (`.lay`) file it came from.
+    &#34;&#34;&#34;
+    return self._layout_name # default; override if needed. (str) </code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.DeckResource.position_id"><code class="name flex">
+<span>def <span class="ident">position_id</span></span>(<span>self, idx)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The identifier used for one of a sequence of positions inside this labware.</p>
+<p>For labware with multiple positions, each position has a different identity, usually represented as a short string that will match the identifier scheme for this resource in the Hamilton Layout file it came from. The identifiers will usually be familiar from a laboratory setting.</p>
+<p>Examples</p>
+<ul>
+<li>96-well plates have 96 positions, each identified with a letter and a number like <code>'D4'</code>. For a <code><a title="pyhamilton.deckresource.Plate96" href="#pyhamilton.deckresource.Plate96">Plate96</a></code> instance named <code>plate</code>, <code>plate.position_id(0)</code> is <code>'A1'</code>, <code>plate.position_id(1)</code> is <code>'B1'</code>, and <code>plate.position_id(95)</code> is <code>'H12'</code>.</li>
+<li>Hamilton racks of 96 tips have 96 positions, identified with integer strings like <code>'87'</code> that start with <code>'1'</code> at the top left tip and increase down columns (8 positions each) first. For a <code><a title="pyhamilton.deckresource.Tip96" href="#pyhamilton.deckresource.Tip96">Tip96</a></code> instance named <code>tips</code>, <code>tips.position_id(0)</code> is <code>'1'</code>, <code>tips.position_id(1)</code> is <code>'2'</code>, and <code>tips.position_id(95)</code> is <code>'96'</code>.</li>
+</ul>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>idx</code></strong> :&ensp;<code>int</code></dt>
+<dd>the index into the sequence of positions. Note: <code>idx</code> is zero-indexed across all labware according to python convention, while most real-world labware positions are 1-indexed.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The identifier (<code>str</code>) associated with the position <code>idx</code> specific deck resource in the Hamilton Layout (<code>.lay</code>) file it came from.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>NotImplementedError</code></dt>
+<dd>The deck resource does not have positions.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def position_id(self, idx):
+    &#34;&#34;&#34;The identifier used for one of a sequence of positions inside this labware.
+    
+    For labware with multiple positions, each position has a different identity, usually represented as a short string that will match the identifier scheme for this resource in the Hamilton Layout file it came from. The identifiers will usually be familiar from a laboratory setting.
+    
+    Examples
+    
+    - 96-well plates have 96 positions, each identified with a letter and a number like `&#39;D4&#39;`. For a `Plate96` instance named `plate`, `plate.position_id(0)` is `&#39;A1&#39;`, `plate.position_id(1)` is `&#39;B1&#39;`, and `plate.position_id(95)` is `&#39;H12&#39;`.
+    - Hamilton racks of 96 tips have 96 positions, identified with integer strings like `&#39;87&#39;` that start with `&#39;1&#39;` at the top left tip and increase down columns (8 positions each) first. For a `Tip96` instance named `tips`, `tips.position_id(0)` is `&#39;1&#39;`, `tips.position_id(1)` is `&#39;2&#39;`, and `tips.position_id(95)` is `&#39;96&#39;`.
+
+    Args:
+      idx (int): the index into the sequence of positions. Note: `idx` is zero-indexed across all labware according to python convention, while most real-world labware positions are 1-indexed.
+
+    Returns:
+      The identifier (`str`) associated with the position `idx` specific deck resource in the Hamilton Layout (`.lay`) file it came from.
+      
+    Raises:
+      NotImplementedError: The deck resource does not have positions.
+    &#34;&#34;&#34;
+    raise NotImplementedError()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyhamilton.deckresource.LayoutManager"><code class="flex name class">
+<span>class <span class="ident">LayoutManager</span></span>
+<span>(</span><span>layfile_path, install=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Optionally activates a Hamilton layout and helps access its contents.</p>
+<p>A <code><a title="pyhamilton.deckresource.LayoutManager" href="#pyhamilton.deckresource.LayoutManager">LayoutManager</a></code> manages the consistent assignment of <code><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></code> objects to items in a Hamilton Layout file (<code>.lay</code>). A <code><a title="pyhamilton.deckresource.LayoutManager" href="#pyhamilton.deckresource.LayoutManager">LayoutManager</a></code> must be used to set the active pyhamilton layout file, but use of this class is strictly optional when sending <code><a title="pyhamilton" href="index.html">pyhamilton</a></code> commands using <code>send_command</code>; names may be passed as string literals in commands instead if they are known in advance. The advantage to specifying all labware using <code>ResourceManager</code> is that resource names are verified to be present in the active layout file at runtime, and guaranteed never used more than once, both of which are necessary to avoid silent Hamilton errors.</p>
+<p>Example usage:</p>
+<pre><code>lmgr = LayoutManager('layout.lay')
+plate = lmgr.assign_unused_resource(ResourceType(Plate24, 'plate_0'))
+culture_reservoir = lmgr.assign_unused_resource(ResourceType(Plate96, 'culture'))
+inducer_tips = lmgr.assign_unused_resource(ResourceType(Tip96, 'inducer_tips'))
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LayoutManager:
+    &#34;&#34;&#34;Optionally activates a Hamilton layout and helps access its contents.
+
+    A `LayoutManager` manages the consistent assignment of `DeckResource` objects to items in a Hamilton Layout file (`.lay`). A `LayoutManager` must be used to set the active pyhamilton layout file, but use of this class is strictly optional when sending `pyhamilton` commands using `send_command`; names may be passed as string literals in commands instead if they are known in advance. The advantage to specifying all labware using `ResourceManager` is that resource names are verified to be present in the active layout file at runtime, and guaranteed never used more than once, both of which are necessary to avoid silent Hamilton errors.
+    
+    Example usage:
+    
+    ```
+    lmgr = LayoutManager(&#39;layout.lay&#39;)
+    plate = lmgr.assign_unused_resource(ResourceType(Plate24, &#39;plate_0&#39;))
+    culture_reservoir = lmgr.assign_unused_resource(ResourceType(Plate96, &#39;culture&#39;))
+    inducer_tips = lmgr.assign_unused_resource(ResourceType(Tip96, &#39;inducer_tips&#39;))
+    ```
+    &#34;&#34;&#34;
+
+    _managers = {}
+    @staticmethod
+    def get_manager(checksum):
+        &#34;&#34;&#34;Return a `LayoutManager` previously instantiated for a layout file that has the specified checksum.
+        
+        Typically used when accessing the same layout file from multiple &#34;threads&#34; in the same process (using the `threading` module) to prevent name double-counting.
+        
+        Args:
+          checksum (str): a checksum found at the end of a Hamilton Layout (`.lay`) file.
+        &#34;&#34;&#34;
+        return LayoutManager._managers[checksum]
+
+    @staticmethod
+    def initial_printable(line, start=0):
+        if not line:
+            return &#39;&#39;
+        end = start
+        while end &lt; len(line) and line[end] in string.printable:
+            end += 1
+        return line[start:end]
+
+    @staticmethod
+    def layline_objid(line):
+        keys = &#39;ObjId&#39;, &#39;LabwareName&#39;
+        if &#39;Labware&#39; in LayoutManager.layline_first_field(line):
+            keys = &#39;Id&#39;, *keys
+        for key in keys:
+            try:
+                start = line.index(key) + len(key) + 1
+                return LayoutManager.initial_printable(line, start)
+            except ValueError:
+                pass
+        else:
+            return None
+
+    @staticmethod
+    def layline_first_field(line):
+        return LayoutManager.initial_printable(line)
+
+    @staticmethod
+    def field_starts_with(field, prefix):
+        try:
+            return field.index(prefix) == 0
+        except ValueError:
+            return False
+
+    @staticmethod
+    def name_from_line(line):
+        field = LayoutManager.layline_objid(line)
+        if field:
+            return field
+        return LayoutManager.layline_first_field(line)
+
+    @staticmethod
+    def line_has_prefixed_name(prefix):
+        def has_prefix(line):
+            return LayoutManager.field_starts_with(LayoutManager.name_from_line(line), prefix)
+        return has_prefix
+
+    @staticmethod
+    def _read_layfile_lines(layfile_path):
+        buff = &#39;&#39;
+        lines = []
+        with open(layfile_path, &#39;rb&#39;) as f:
+            for c in f.read():
+                try:
+                    c = bytes([c]).decode(&#39;utf-8&#39;)
+                except UnicodeDecodeError:
+                    continue
+                buff += c
+                if c in &#39;\n\r\t&#39;:
+                    lines.append(buff.strip())
+                    buff = &#39;&#39;
+        if buff:
+            lines.append(buff)
+        return lines
+
+    @staticmethod
+    def _layfile_checksum(layfile_path):
+        lay_lines = LayoutManager._read_layfile_lines(layfile_path)
+        return lay_lines[-1].split(&#39;checksum=&#39;)[1].split(&#39;$$&#39;)[0]
+
+    @staticmethod
+    def layfiles_equal(lay_path_1, lay_path_2):
+        return LayoutManager._layfile_checksum(lay_path_1) == LayoutManager._layfile_checksum(lay_path_2)
+
+    def __init__(self, layfile_path, install=True):
+        self.lines = self._read_layfile_lines(layfile_path)
+        self.resources = {}
+        self.checksum = self._layfile_checksum(layfile_path)
+        self._managers[self.checksum] = self
+        if install and not LayoutManager.layfiles_equal(layfile_path, OEM_LAY_PATH):
+                print(&#39;BACKING UP AND INSTALLING NEW LAYFILE&#39;)
+                shutil.copy2(layfile_path, os.path.join(LAY_BACKUP_DIR, datetime.today().strftime(&#39;%Y%m%d_%H%M%S_&#39;) + os.path.basename(layfile_path)))
+                shutil.copy2(layfile_path, OEM_LAY_PATH)
+        
+    def assign_unused_resource(self, restype, order_key=None, reverse=False):
+        &#34;&#34;&#34;Create a new deck resource after finding and assigning an unused name that matches the resource type.
+        
+        This method searches through the layout file for one new layout name that matches the given resource type. It reserves this layout name permanently so that no later calls to `assign_unused_resource` can create a deck resource with the same layout name. Returns a `DeckResource`.
+        
+        Args:
+          restype (ResourceType): The resource type, which consists of a resource class (descendent of `DeckResource`) and some string pattern matching functions to identify the desired layout names.
+          order_key (Callable[[DeckResource], Comparable]): Optional; when multiple layout names match, specifies a function of one argument that is used to extract a comparison key from each candidate `DeckResource` object. The arg-min or arg-max of `order_key` will be returned, depending on `reverse`. By default, lexicographic order by layout name is used, which is suitable for most use cases, e.g. plates with layout names &#34;pcr-plate-a&#34;, &#34;pcr-plate-b&#34;, &#34;pcr-plate-c&#34;, ... will be returned in the expected order.
+          reverse (bool): Optional; use reverse-lexicographic order for layout names, useful for e.g. plate stacking applications, or reverse the order imposed by `order_key` if it is given.
+          
+        Returns:
+          A new instance of the resource class (descendent of `DeckResource`) from the given `ResourceType` `restype`.
+          
+        Raises:
+          ResourceUnavailableError: no names in the layout file that have not already been assigned match the resource type
+        
+        &#34;&#34;&#34;
+        if order_key is None:
+            order_key = lambda r: r.layout_name()
+        if not isinstance(restype, ResourceType):
+            raise TypeError(&#39;Must provide a ResourceType to be assigned&#39;)
+        matching_ress = []
+        for line in self.lines:
+            if restype.test(line):
+                match_name = restype.extract_name(line)
+                if match_name in self.resources:
+                    continue
+                matching_ress.append(restype.resource_class(match_name))
+        if not matching_ress:
+            msg = restype.not_found_msg or &#39;No unassigned resource of type &#39; + restype.resource_class.__name__ + &#39; available&#39;
+            raise ResourceUnavailableError(msg)
+        choose = max if reverse else min
+        new_res = choose(matching_ress, key=order_key)
+        self.resources[new_res.layout_name()] = new_res
+        return new_res</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="pyhamilton.deckresource.LayoutManager.field_starts_with"><code class="name flex">
+<span>def <span class="ident">field_starts_with</span></span>(<span>field, prefix)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def field_starts_with(field, prefix):
+    try:
+        return field.index(prefix) == 0
+    except ValueError:
+        return False</code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.LayoutManager.get_manager"><code class="name flex">
+<span>def <span class="ident">get_manager</span></span>(<span>checksum)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a <code><a title="pyhamilton.deckresource.LayoutManager" href="#pyhamilton.deckresource.LayoutManager">LayoutManager</a></code> previously instantiated for a layout file that has the specified checksum.</p>
+<p>Typically used when accessing the same layout file from multiple "threads" in the same process (using the <code>threading</code> module) to prevent name double-counting.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>checksum</code></strong> :&ensp;<code>str</code></dt>
+<dd>a checksum found at the end of a Hamilton Layout (<code>.lay</code>) file.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get_manager(checksum):
+    &#34;&#34;&#34;Return a `LayoutManager` previously instantiated for a layout file that has the specified checksum.
+    
+    Typically used when accessing the same layout file from multiple &#34;threads&#34; in the same process (using the `threading` module) to prevent name double-counting.
+    
+    Args:
+      checksum (str): a checksum found at the end of a Hamilton Layout (`.lay`) file.
+    &#34;&#34;&#34;
+    return LayoutManager._managers[checksum]</code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.LayoutManager.initial_printable"><code class="name flex">
+<span>def <span class="ident">initial_printable</span></span>(<span>line, start=0)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def initial_printable(line, start=0):
+    if not line:
+        return &#39;&#39;
+    end = start
+    while end &lt; len(line) and line[end] in string.printable:
+        end += 1
+    return line[start:end]</code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.LayoutManager.layfiles_equal"><code class="name flex">
+<span>def <span class="ident">layfiles_equal</span></span>(<span>lay_path_1, lay_path_2)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def layfiles_equal(lay_path_1, lay_path_2):
+    return LayoutManager._layfile_checksum(lay_path_1) == LayoutManager._layfile_checksum(lay_path_2)</code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.LayoutManager.layline_first_field"><code class="name flex">
+<span>def <span class="ident">layline_first_field</span></span>(<span>line)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def layline_first_field(line):
+    return LayoutManager.initial_printable(line)</code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.LayoutManager.layline_objid"><code class="name flex">
+<span>def <span class="ident">layline_objid</span></span>(<span>line)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def layline_objid(line):
+    keys = &#39;ObjId&#39;, &#39;LabwareName&#39;
+    if &#39;Labware&#39; in LayoutManager.layline_first_field(line):
+        keys = &#39;Id&#39;, *keys
+    for key in keys:
+        try:
+            start = line.index(key) + len(key) + 1
+            return LayoutManager.initial_printable(line, start)
+        except ValueError:
+            pass
+    else:
+        return None</code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.LayoutManager.line_has_prefixed_name"><code class="name flex">
+<span>def <span class="ident">line_has_prefixed_name</span></span>(<span>prefix)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def line_has_prefixed_name(prefix):
+    def has_prefix(line):
+        return LayoutManager.field_starts_with(LayoutManager.name_from_line(line), prefix)
+    return has_prefix</code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.LayoutManager.name_from_line"><code class="name flex">
+<span>def <span class="ident">name_from_line</span></span>(<span>line)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def name_from_line(line):
+    field = LayoutManager.layline_objid(line)
+    if field:
+        return field
+    return LayoutManager.layline_first_field(line)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyhamilton.deckresource.LayoutManager.assign_unused_resource"><code class="name flex">
+<span>def <span class="ident">assign_unused_resource</span></span>(<span>self, restype, order_key=None, reverse=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create a new deck resource after finding and assigning an unused name that matches the resource type.</p>
+<p>This method searches through the layout file for one new layout name that matches the given resource type. It reserves this layout name permanently so that no later calls to <code>assign_unused_resource</code> can create a deck resource with the same layout name. Returns a <code><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></code>.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>restype</code></strong> :&ensp;<code><a title="pyhamilton.deckresource.ResourceType" href="#pyhamilton.deckresource.ResourceType">ResourceType</a></code></dt>
+<dd>The resource type, which consists of a resource class (descendent of <code><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></code>) and some string pattern matching functions to identify the desired layout names.</dd>
+<dt><strong><code>order_key</code></strong> :&ensp;<code>Callable[[<a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a>], Comparable]</code></dt>
+<dd>Optional; when multiple layout names match, specifies a function of one argument that is used to extract a comparison key from each candidate <code><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></code> object. The arg-min or arg-max of <code>order_key</code> will be returned, depending on <code>reverse</code>. By default, lexicographic order by layout name is used, which is suitable for most use cases, e.g. plates with layout names "pcr-plate-a", "pcr-plate-b", "pcr-plate-c", &hellip; will be returned in the expected order.</dd>
+<dt><strong><code>reverse</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Optional; use reverse-lexicographic order for layout names, useful for e.g. plate stacking applications, or reverse the order imposed by <code>order_key</code> if it is given.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A new instance of the resource class (descendent of <code><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></code>) from the given <code><a title="pyhamilton.deckresource.ResourceType" href="#pyhamilton.deckresource.ResourceType">ResourceType</a></code> <code>restype</code>.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ResourceUnavailableError</code></dt>
+<dd>no names in the layout file that have not already been assigned match the resource type</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def assign_unused_resource(self, restype, order_key=None, reverse=False):
+    &#34;&#34;&#34;Create a new deck resource after finding and assigning an unused name that matches the resource type.
+    
+    This method searches through the layout file for one new layout name that matches the given resource type. It reserves this layout name permanently so that no later calls to `assign_unused_resource` can create a deck resource with the same layout name. Returns a `DeckResource`.
+    
+    Args:
+      restype (ResourceType): The resource type, which consists of a resource class (descendent of `DeckResource`) and some string pattern matching functions to identify the desired layout names.
+      order_key (Callable[[DeckResource], Comparable]): Optional; when multiple layout names match, specifies a function of one argument that is used to extract a comparison key from each candidate `DeckResource` object. The arg-min or arg-max of `order_key` will be returned, depending on `reverse`. By default, lexicographic order by layout name is used, which is suitable for most use cases, e.g. plates with layout names &#34;pcr-plate-a&#34;, &#34;pcr-plate-b&#34;, &#34;pcr-plate-c&#34;, ... will be returned in the expected order.
+      reverse (bool): Optional; use reverse-lexicographic order for layout names, useful for e.g. plate stacking applications, or reverse the order imposed by `order_key` if it is given.
+      
+    Returns:
+      A new instance of the resource class (descendent of `DeckResource`) from the given `ResourceType` `restype`.
+      
+    Raises:
+      ResourceUnavailableError: no names in the layout file that have not already been assigned match the resource type
+    
+    &#34;&#34;&#34;
+    if order_key is None:
+        order_key = lambda r: r.layout_name()
+    if not isinstance(restype, ResourceType):
+        raise TypeError(&#39;Must provide a ResourceType to be assigned&#39;)
+    matching_ress = []
+    for line in self.lines:
+        if restype.test(line):
+            match_name = restype.extract_name(line)
+            if match_name in self.resources:
+                continue
+            matching_ress.append(restype.resource_class(match_name))
+    if not matching_ress:
+        msg = restype.not_found_msg or &#39;No unassigned resource of type &#39; + restype.resource_class.__name__ + &#39; available&#39;
+        raise ResourceUnavailableError(msg)
+    choose = max if reverse else min
+    new_res = choose(matching_ress, key=order_key)
+    self.resources[new_res.layout_name()] = new_res
+    return new_res</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyhamilton.deckresource.Plate12"><code class="flex name class">
+<span>class <span class="ident">Plate12</span></span>
+<span>(</span><span>layout_name)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Plate12(DeckResource):
+
+    def __init__(self, layout_name):
+        self._layout_name = layout_name
+        self._num_items = 12
+        self.resource_type = DeckResource.types.VESSEL
+        self._items = [Vessel(self, i) for i in range(self._num_items)]
+
+    def well_coords(self, idx):
+        self._assert_idx_in_range(idx)
+        return int(idx)//3, int(idx)%3
+
+    def _alignment_delta(self, start, end):
+        [self._assert_idx_in_range(p) for p in (start, end)]
+        xs, ys = self.well_coords(start)
+        xe, ye = self.well_coords(end)
+        return (xe - xs, ye - ys, [DeckResource.align.VERTICAL] if xs == xe and ys != ye else [])
+
+    def position_id(self, idx):
+        x, y = self.well_coords(idx)
+        return &#39;ABC&#39;[y] + str(x + 1)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pyhamilton.deckresource.Plate12.well_coords"><code class="name flex">
+<span>def <span class="ident">well_coords</span></span>(<span>self, idx)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def well_coords(self, idx):
+    self._assert_idx_in_range(idx)
+    return int(idx)//3, int(idx)%3</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyhamilton.deckresource.DeckResource.layout_name" href="#pyhamilton.deckresource.DeckResource.layout_name">layout_name</a></code></li>
+<li><code><a title="pyhamilton.deckresource.DeckResource.position_id" href="#pyhamilton.deckresource.DeckResource.position_id">position_id</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyhamilton.deckresource.Plate24"><code class="flex name class">
+<span>class <span class="ident">Plate24</span></span>
+<span>(</span><span>layout_name)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Plate24(DeckResource):
+
+    def __init__(self, layout_name):
+        self._layout_name = layout_name
+        self._num_items = 24
+        self.resource_type = DeckResource.types.VESSEL
+        self._items = [Vessel(self, i) for i in range(self._num_items)]
+
+    def well_coords(self, idx):
+        self._assert_idx_in_range(idx)
+        return int(idx)//4, int(idx)%4
+
+    def _alignment_delta(self, start, end):
+        [self._assert_idx_in_range(p) for p in (start, end)]
+        xs, ys = self.well_coords(start)
+        xe, ye = self.well_coords(end)
+        return (xe - xs, ye - ys, [DeckResource.align.VERTICAL] if xs == xe and ys != ye else [])
+
+    def position_id(self, idx):
+        x, y = self.well_coords(idx)
+        return &#39;ABCD&#39;[y] + str(x + 1)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pyhamilton.deckresource.Plate24.well_coords"><code class="name flex">
+<span>def <span class="ident">well_coords</span></span>(<span>self, idx)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def well_coords(self, idx):
+    self._assert_idx_in_range(idx)
+    return int(idx)//4, int(idx)%4</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyhamilton.deckresource.DeckResource.layout_name" href="#pyhamilton.deckresource.DeckResource.layout_name">layout_name</a></code></li>
+<li><code><a title="pyhamilton.deckresource.DeckResource.position_id" href="#pyhamilton.deckresource.DeckResource.position_id">position_id</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyhamilton.deckresource.Plate96"><code class="flex name class">
+<span>class <span class="ident">Plate96</span></span>
+<span>(</span><span>layout_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Labware types with 96 positions that use a letter-number id scheme like <code>'A1'</code>.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Plate96(Standard96):
+
+    def __init__(self, layout_name):
+        self._layout_name = layout_name
+        self._num_items = 96
+        self.resource_type = DeckResource.types.VESSEL
+        self._items = [Vessel(self, i) for i in range(self._num_items)]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.deckresource.Standard96" href="#pyhamilton.deckresource.Standard96">Standard96</a></li>
+<li><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyhamilton.deckresource.Standard96" href="#pyhamilton.deckresource.Standard96">Standard96</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyhamilton.deckresource.Standard96.layout_name" href="#pyhamilton.deckresource.DeckResource.layout_name">layout_name</a></code></li>
+<li><code><a title="pyhamilton.deckresource.Standard96.position_id" href="#pyhamilton.deckresource.DeckResource.position_id">position_id</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyhamilton.deckresource.ResourceIterItem"><code class="flex name class">
+<span>class <span class="ident">ResourceIterItem</span></span>
+<span>(</span><span>resource, index)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResourceIterItem:
+
+    def __init__(self, resource, index):
+        self.parent_resource = resource
+        self.index = index
+        self.history = []</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.deckresource.Tip" href="#pyhamilton.deckresource.Tip">Tip</a></li>
+<li><a title="pyhamilton.deckresource.Vessel" href="#pyhamilton.deckresource.Vessel">Vessel</a></li>
+</ul>
+</dd>
+<dt id="pyhamilton.deckresource.ResourceType"><code class="flex name class">
+<span>class <span class="ident">ResourceType</span></span>
+<span>(</span><span>resource_class, *name_specifiers)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Specifies a type of labware to extract using LayoutManager, and how.</p>
+<p>This class associates a resource class, such as <code><a title="pyhamilton.deckresource.Plate96" href="#pyhamilton.deckresource.Plate96">Plate96</a></code>, with either a literal labware identifier (<code>str</code>) that appears in the Hamilton Layout (<code>.lay</code>) file, or a pair of functions: one that identifies when a text line in a layout file could be assigned this resource, called <code>test</code>, and one that parses such a name out of the line, called <code>extract_name</code>.</p>
+<p>Typical usage:</p>
+<pre><code>plate_type = ResourceType(Plate96, 'Cos_96_Rd_0001')
+lmgr = LayoutManager('layout.lay')
+plate = lmgr.assign_unused_resource(plate_type)
+</code></pre>
+<p>Or:</p>
+<pre><code>plate_type = ResourceType(Plate96,
+        LayoutManager.line_has_prefixed_name('Cos_96_Rd_'),
+        LayoutManager.name_from_line)
+lmgr = LayoutManager('layout.lay')
+plate1 = lmgr.assign_unused_resource(plate_type)
+plate2 = lmgr.assign_unused_resource(plate_type)
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>resource_class</code></strong> :&ensp;<code>class</code></dt>
+<dd>a class that inherits from <code><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></code>. Instances of this class will be returned from <code><a title="pyhamilton.deckresource.LayoutManager" href="#pyhamilton.deckresource.LayoutManager">LayoutManager</a></code> when assigning resources, factory-style.</dd>
+<dt><strong><code>*name_specifiers</code></strong> :&ensp;<code>list</code></dt>
+<dd>This argument is unpacked with the "splat" operator (<code>*</code>) to enable polymorphism. One or the other of:</dd>
+</dl>
+<ul>
+<li>(two-argument form) an exact name (<code>str</code>) of a labware item that appears in the target layout file, or</li>
+<li>(three-argument form) <code>test</code> and <code>extract_name</code> (see usage above):<ul>
+<li><code>test</code>: a function [(<code>str</code>) -&gt; <code>bool</code>] that identifies Layout file lines (<code>str</code>) that could be used to assign resources of this type</li>
+<li><code>extract_name</code>: a function [(<code>str</code>) -&gt; <code>str</code>] that gets the desired name out of a line identified with <code>test</code>.</li>
+</ul>
+</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResourceType:
+    &#34;&#34;&#34;
+    Specifies a type of labware to extract using LayoutManager, and how.
+
+    This class associates a resource class, such as `Plate96`, with either a literal labware identifier (`str`) that appears in the Hamilton Layout (`.lay`) file, or a pair of functions: one that identifies when a text line in a layout file could be assigned this resource, called `test`, and one that parses such a name out of the line, called `extract_name`.
+
+    Typical usage:
+
+    ```
+    plate_type = ResourceType(Plate96, &#39;Cos_96_Rd_0001&#39;)
+    lmgr = LayoutManager(&#39;layout.lay&#39;)
+    plate = lmgr.assign_unused_resource(plate_type)
+    ```
+
+    Or:
+
+    ```
+    plate_type = ResourceType(Plate96,
+            LayoutManager.line_has_prefixed_name(&#39;Cos_96_Rd_&#39;),
+            LayoutManager.name_from_line)
+    lmgr = LayoutManager(&#39;layout.lay&#39;)
+    plate1 = lmgr.assign_unused_resource(plate_type)
+    plate2 = lmgr.assign_unused_resource(plate_type)
+    ```
+
+    Args:
+      resource_class (class): a class that inherits from `DeckResource`. Instances of this class will be returned from `LayoutManager` when assigning resources, factory-style.
+      *name_specifiers (list): This argument is unpacked with the &#34;splat&#34; operator (`*`) to enable polymorphism. One or the other of:
+      - (two-argument form) an exact name (`str`) of a labware item that appears in the target layout file, or
+      - (three-argument form) `test` and `extract_name` (see usage above):
+          * `test`: a function [(`str`) -&gt; `bool`] that identifies Layout file lines (`str`) that could be used to assign resources of this type
+          * `extract_name`: a function [(`str`) -&gt; `str`] that gets the desired name out of a line identified with `test`.
+
+    &#34;&#34;&#34;
+
+    def __init__(self, resource_class, *name_specifiers):
+        self.resource_class = resource_class
+        self.not_found_msg = None
+        try:
+            specific_name, = name_specifiers
+            self.test = lambda line: specific_name in re.split(r&#39;\W&#39;, line)
+            self.extract_name = lambda line: specific_name
+            self.not_found_msg = &#39;No exact match for name &#34;&#39; + specific_name + &#39;&#34; to assign a resource of type &#39; + resource_class.__name__
+        except ValueError:
+            self.test, self.extract_name = name_specifiers</code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.Standard96"><code class="flex name class">
+<span>class <span class="ident">Standard96</span></span>
+<span>(</span><span>layout_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Labware types with 96 positions that use a letter-number id scheme like <code>'A1'</code>.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Standard96(DeckResource):
+    &#34;&#34;&#34;Labware types with 96 positions that use a letter-number id scheme like `&#39;A1&#39;`.
+    &#34;&#34;&#34;
+
+    def well_coords(self, idx):
+        self._assert_idx_in_range(idx)
+        return int(idx)//8, int(idx)%8
+
+    def _alignment_delta(self, start, end):
+        [self._assert_idx_in_range(p) for p in (start, end)]
+        xs, ys = self.well_coords(start)
+        xe, ye = self.well_coords(end)
+        return (xe - xs, ye - ys, [DeckResource.align.STD_96]
+                                  + ([DeckResource.align.VERTICAL] if xs == xe and ys != ye else []))
+
+    def position_id(self, idx):
+        x, y = self.well_coords(idx)
+        return &#39;ABCDEFGH&#39;[y] + str(x + 1)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.deckresource.Plate96" href="#pyhamilton.deckresource.Plate96">Plate96</a></li>
+<li><a title="pyhamilton.deckresource.Tip96" href="#pyhamilton.deckresource.Tip96">Tip96</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pyhamilton.deckresource.Standard96.well_coords"><code class="name flex">
+<span>def <span class="ident">well_coords</span></span>(<span>self, idx)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def well_coords(self, idx):
+    self._assert_idx_in_range(idx)
+    return int(idx)//8, int(idx)%8</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyhamilton.deckresource.DeckResource.layout_name" href="#pyhamilton.deckresource.DeckResource.layout_name">layout_name</a></code></li>
+<li><code><a title="pyhamilton.deckresource.DeckResource.position_id" href="#pyhamilton.deckresource.DeckResource.position_id">position_id</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyhamilton.deckresource.Tip"><code class="flex name class">
+<span>class <span class="ident">Tip</span></span>
+<span>(</span><span>resource, index)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Tip(ResourceIterItem):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.deckresource.ResourceIterItem" href="#pyhamilton.deckresource.ResourceIterItem">ResourceIterItem</a></li>
+</ul>
+</dd>
+<dt id="pyhamilton.deckresource.Tip96"><code class="flex name class">
+<span>class <span class="ident">Tip96</span></span>
+<span>(</span><span>layout_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Labware types with 96 positions that use a letter-number id scheme like <code>'A1'</code>.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Tip96(Standard96):
+
+    def __init__(self, layout_name):
+        self._layout_name = layout_name
+        self._num_items = 96
+        self.resource_type = DeckResource.types.TIP
+        self._items = [Tip(self, i) for i in range(self._num_items)]
+    
+    def position_id(self, idx): # tips use 1-indexed int ids descending columns first
+        self._assert_idx_in_range(idx)
+        return str(idx + 1) # switch to standard advance through row first</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.deckresource.Standard96" href="#pyhamilton.deckresource.Standard96">Standard96</a></li>
+<li><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyhamilton.deckresource.Standard96" href="#pyhamilton.deckresource.Standard96">Standard96</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyhamilton.deckresource.Standard96.layout_name" href="#pyhamilton.deckresource.DeckResource.layout_name">layout_name</a></code></li>
+<li><code><a title="pyhamilton.deckresource.Standard96.position_id" href="#pyhamilton.deckresource.DeckResource.position_id">position_id</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyhamilton.deckresource.Vessel"><code class="flex name class">
+<span>class <span class="ident">Vessel</span></span>
+<span>(</span><span>resource, index)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Vessel(ResourceIterItem):
+
+    ADD = 0
+    REMOVE = 1
+
+    def record_removal(self, ml, dest=None):
+        if dest is not None and not isinstance(dest, Vessel):
+            raise ValueError(&#39;Sources and destinations in Vessel contents records must be Vessels&#39;)
+        self.history.append((Vessel.REMOVE, ml, dest))
+
+    def record_addition(self, ml, source):
+        if not isinstance(source, Vessel):
+            raise ValueError(&#39;Sources and destinations in Vessel contents records must be Vessels&#39;)
+        self.history.append((Vessel.ADD, ml, source))
+
+    def current_volume(self):
+        return sum((ml if direction == Vessel.ADD else -ml) for direction, ml, _ in self.history)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyhamilton.deckresource.ResourceIterItem" href="#pyhamilton.deckresource.ResourceIterItem">ResourceIterItem</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyhamilton.deckresource.Vessel.ADD"><code class="name">var <span class="ident">ADD</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyhamilton.deckresource.Vessel.REMOVE"><code class="name">var <span class="ident">REMOVE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyhamilton.deckresource.Vessel.current_volume"><code class="name flex">
+<span>def <span class="ident">current_volume</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def current_volume(self):
+    return sum((ml if direction == Vessel.ADD else -ml) for direction, ml, _ in self.history)</code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.Vessel.record_addition"><code class="name flex">
+<span>def <span class="ident">record_addition</span></span>(<span>self, ml, source)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def record_addition(self, ml, source):
+    if not isinstance(source, Vessel):
+        raise ValueError(&#39;Sources and destinations in Vessel contents records must be Vessels&#39;)
+    self.history.append((Vessel.ADD, ml, source))</code></pre>
+</details>
+</dd>
+<dt id="pyhamilton.deckresource.Vessel.record_removal"><code class="name flex">
+<span>def <span class="ident">record_removal</span></span>(<span>self, ml, dest=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def record_removal(self, ml, dest=None):
+    if dest is not None and not isinstance(dest, Vessel):
+        raise ValueError(&#39;Sources and destinations in Vessel contents records must be Vessels&#39;)
+    self.history.append((Vessel.REMOVE, ml, dest))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyhamilton" href="index.html">pyhamilton</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyhamilton.deckresource.DeckResource" href="#pyhamilton.deckresource.DeckResource">DeckResource</a></code></h4>
+<ul class="">
+<li><code><a title="pyhamilton.deckresource.DeckResource.align" href="#pyhamilton.deckresource.DeckResource.align">align</a></code></li>
+<li><code><a title="pyhamilton.deckresource.DeckResource.alignment_delta" href="#pyhamilton.deckresource.DeckResource.alignment_delta">alignment_delta</a></code></li>
+<li><code><a title="pyhamilton.deckresource.DeckResource.layout_name" href="#pyhamilton.deckresource.DeckResource.layout_name">layout_name</a></code></li>
+<li><code><a title="pyhamilton.deckresource.DeckResource.position_id" href="#pyhamilton.deckresource.DeckResource.position_id">position_id</a></code></li>
+<li><code><a title="pyhamilton.deckresource.DeckResource.types" href="#pyhamilton.deckresource.DeckResource.types">types</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyhamilton.deckresource.LayoutManager" href="#pyhamilton.deckresource.LayoutManager">LayoutManager</a></code></h4>
+<ul class="">
+<li><code><a title="pyhamilton.deckresource.LayoutManager.assign_unused_resource" href="#pyhamilton.deckresource.LayoutManager.assign_unused_resource">assign_unused_resource</a></code></li>
+<li><code><a title="pyhamilton.deckresource.LayoutManager.field_starts_with" href="#pyhamilton.deckresource.LayoutManager.field_starts_with">field_starts_with</a></code></li>
+<li><code><a title="pyhamilton.deckresource.LayoutManager.get_manager" href="#pyhamilton.deckresource.LayoutManager.get_manager">get_manager</a></code></li>
+<li><code><a title="pyhamilton.deckresource.LayoutManager.initial_printable" href="#pyhamilton.deckresource.LayoutManager.initial_printable">initial_printable</a></code></li>
+<li><code><a title="pyhamilton.deckresource.LayoutManager.layfiles_equal" href="#pyhamilton.deckresource.LayoutManager.layfiles_equal">layfiles_equal</a></code></li>
+<li><code><a title="pyhamilton.deckresource.LayoutManager.layline_first_field" href="#pyhamilton.deckresource.LayoutManager.layline_first_field">layline_first_field</a></code></li>
+<li><code><a title="pyhamilton.deckresource.LayoutManager.layline_objid" href="#pyhamilton.deckresource.LayoutManager.layline_objid">layline_objid</a></code></li>
+<li><code><a title="pyhamilton.deckresource.LayoutManager.line_has_prefixed_name" href="#pyhamilton.deckresource.LayoutManager.line_has_prefixed_name">line_has_prefixed_name</a></code></li>
+<li><code><a title="pyhamilton.deckresource.LayoutManager.name_from_line" href="#pyhamilton.deckresource.LayoutManager.name_from_line">name_from_line</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyhamilton.deckresource.Plate12" href="#pyhamilton.deckresource.Plate12">Plate12</a></code></h4>
+<ul class="">
+<li><code><a title="pyhamilton.deckresource.Plate12.well_coords" href="#pyhamilton.deckresource.Plate12.well_coords">well_coords</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyhamilton.deckresource.Plate24" href="#pyhamilton.deckresource.Plate24">Plate24</a></code></h4>
+<ul class="">
+<li><code><a title="pyhamilton.deckresource.Plate24.well_coords" href="#pyhamilton.deckresource.Plate24.well_coords">well_coords</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyhamilton.deckresource.Plate96" href="#pyhamilton.deckresource.Plate96">Plate96</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.deckresource.ResourceIterItem" href="#pyhamilton.deckresource.ResourceIterItem">ResourceIterItem</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.deckresource.ResourceType" href="#pyhamilton.deckresource.ResourceType">ResourceType</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.deckresource.Standard96" href="#pyhamilton.deckresource.Standard96">Standard96</a></code></h4>
+<ul class="">
+<li><code><a title="pyhamilton.deckresource.Standard96.well_coords" href="#pyhamilton.deckresource.Standard96.well_coords">well_coords</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyhamilton.deckresource.Tip" href="#pyhamilton.deckresource.Tip">Tip</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.deckresource.Tip96" href="#pyhamilton.deckresource.Tip96">Tip96</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyhamilton.deckresource.Vessel" href="#pyhamilton.deckresource.Vessel">Vessel</a></code></h4>
+<ul class="">
+<li><code><a title="pyhamilton.deckresource.Vessel.ADD" href="#pyhamilton.deckresource.Vessel.ADD">ADD</a></code></li>
+<li><code><a title="pyhamilton.deckresource.Vessel.REMOVE" href="#pyhamilton.deckresource.Vessel.REMOVE">REMOVE</a></code></li>
+<li><code><a title="pyhamilton.deckresource.Vessel.current_volume" href="#pyhamilton.deckresource.Vessel.current_volume">current_volume</a></code></li>
+<li><code><a title="pyhamilton.deckresource.Vessel.record_addition" href="#pyhamilton.deckresource.Vessel.record_addition">record_addition</a></code></li>
+<li><code><a title="pyhamilton.deckresource.Vessel.record_removal" href="#pyhamilton.deckresource.Vessel.record_removal">record_removal</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>
